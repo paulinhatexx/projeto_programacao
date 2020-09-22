@@ -1,5 +1,5 @@
 #include <stdio.h>
-int main (void){
-    printf("Projeto Programação");
+void main(){
+    printf("Projeto Programação\n");
     return 0;
 }
