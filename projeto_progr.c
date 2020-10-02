@@ -29,4 +29,7 @@ void menuSobre(void){
     printf("///                                                                   ///\n");
     printf("/////////////////////////////////////////////////////////////////////////\n");
     printf("\n");
+    printf("Menu\n");
+    printf("Escolha o número da opção desejada: \n");
+    
 }
