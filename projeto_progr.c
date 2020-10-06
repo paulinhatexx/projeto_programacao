@@ -8,6 +8,7 @@ void menuDespesa(void);
 
 int main (void){
     menuSobre();
+    menuReceita();
 getchar();
     
     return 0;
