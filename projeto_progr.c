@@ -2,13 +2,19 @@
 
 void menuSobre(void);
 void menuReceita(void);
+void menuPrincipal(void);
 void menuPagamentos(void);
 void menuDespesa(void);
+void menuProduto(void);
 
 
 int main (void){
     menuSobre();
+    menuPrincipal();
     menuReceita();
+    menuPagamentos();
+    menuDespesa();
+    menuProduto();
 getchar();
     
     return 0;
@@ -44,13 +50,36 @@ void menuSobre(void){
     printf("\n");
 }
 
+void menuPrincipal(void) {
+    printf("\n");
+    printf("/////////////////////////////////////////////////////////////////////////\n");
+    printf("///|                                                                 |///\n");
+    printf("///|                    *** SIG-Finance ***                          |///\n");
+    printf("///|                                                                 |///\n");
+    printf("///|_________________________________________________________________|///\n");
+    printf("///                      ** Menu Principal **                         ///\n");
+    printf("///                                                                   ///\n");
+    printf("/// Escolha a opção desejada:                                         ///\n");
+    printf("///                                                                   ///\n");
+    printf("/// 1. Receitas                                                       ///\n");
+    printf("/// 2. Pagamentos                                                     ///\n");
+    printf("/// 3. Despesas                                                       ///\n");
+    printf("/// 4. Sobre                                                          ///\n");
+    printf("/// 5. Produto                                                        ///\n");
+    printf("/// 6. Sair                                                           ///\n");
+    printf("///                                                                   ///\n");
+    printf("/////////////////////////////////////////////////////////////////////////\n");
+    printf("\n");
+         
+}
+
 void menuReceita(void) {
     printf("\n");
     printf("/////////////////////////////////////////////////////////////////////////\n");
-    printf("///                                                                  |///\n");
-    printf("///                     *** SIG-Finance ***                          |///\n");
-    printf("///                                                                  |///\n");
-    printf("///__________________________________________________________________|///\n");
+    printf("///|                                                                 |///\n");
+    printf("///|                    *** SIG-Finance ***                          |///\n");
+    printf("///|                                                                 |///\n");
+    printf("///|_________________________________________________________________|///\n");
     printf("///                      ** Menu Receita **                           ///\n");
     printf("///                                                                   ///\n");
     printf("/// Escolha a opção desejada:                                         ///\n");
@@ -68,10 +97,10 @@ void menuReceita(void) {
 void menuPagamentos(void) {
     printf("\n");
     printf("/////////////////////////////////////////////////////////////////////////\n");
-    printf("///                                                                  |///\n");
-    printf("///                     *** SIG-Finance ***                          |///\n");
-    printf("///                                                                  |///\n");
-    printf("///__________________________________________________________________|///\n");
+    printf("///|                                                                 |///\n");
+    printf("///|                    *** SIG-Finance ***                          |///\n");
+    printf("///|                                                                 |///\n");
+    printf("///|_________________________________________________________________|///\n");
     printf("///                      ** Menu Pagamentos **                        ///\n");
     printf("///                                                                   ///\n");
     printf("/// Escolha a opção desejada:                                         ///\n");
@@ -89,10 +118,10 @@ void menuPagamentos(void) {
 void menuDespesa(void) {
     printf("\n");
     printf("/////////////////////////////////////////////////////////////////////////\n");
-    printf("///                                                                  |///\n");
-    printf("///                     *** SIG-Finance ***                          |///\n");
-    printf("///                                                                  |///\n");
-    printf("///__________________________________________________________________|///\n");
+    printf("///|                                                                 |///\n");
+    printf("///|                    *** SIG-Finance ***                          |///\n");
+    printf("///|                                                                 |///\n");
+    printf("///|_________________________________________________________________|///\n");
     printf("///                     ** Menu Despesas **                           ///\n");
     printf("///                                                                   ///\n");
     printf("/// Escolha a opção desejada:                                         ///\n");
@@ -100,6 +129,27 @@ void menuDespesa(void) {
     printf("/// 1. Cadastrar Despesa                                              ///\n");
     printf("/// 2. Atualizar Despesa                                              ///\n");
     printf("/// 3. Excluir Despesa                                                ///\n");
+    printf("/// 4. Voltar ao Menu Anterior                                        ///\n");
+    printf("///                                                                   ///\n");
+    printf("/////////////////////////////////////////////////////////////////////////\n");
+    printf("\n");
+         
+}
+
+void menuProduto(void) {
+    printf("\n");
+    printf("/////////////////////////////////////////////////////////////////////////\n");
+    printf("///|                                                                 |///\n");
+    printf("///|                    *** SIG-Finance ***                          |///\n");
+    printf("///|                                                                 |///\n");
+    printf("///|_________________________________________________________________|///\n");
+    printf("///                     ** Menu Produto **                            ///\n");
+    printf("///                                                                   ///\n");
+    printf("/// Escolha a opção desejada:                                         ///\n");
+    printf("///                                                                   ///\n");
+    printf("/// 1. Cadastrar Produto                                              ///\n");
+    printf("/// 2. Alterar Produto                                                ///\n");
+    printf("/// 3. Excluir Produto                                                ///\n");
     printf("/// 4. Voltar ao Menu Anterior                                        ///\n");
     printf("///                                                                   ///\n");
     printf("/////////////////////////////////////////////////////////////////////////\n");
