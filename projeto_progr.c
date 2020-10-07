@@ -6,16 +6,24 @@ void menuPrincipal(void);
 void menuPagamentos(void);
 void menuDespesa(void);
 void menuProduto(void);
+void menuConsulta(void);
 
 
 int main (void){
     menuSobre();
+    getchar();
     menuPrincipal();
+    getchar();
     menuReceita();
+    getchar();
     menuPagamentos();
+    getchar();
     menuDespesa();
+    getchar();
     menuProduto();
-getchar();
+    getchar();
+    menuConsulta();
+
     
     return 0;
 }
@@ -66,7 +74,8 @@ void menuPrincipal(void) {
     printf("/// 3. Despesas                                                       ///\n");
     printf("/// 4. Sobre                                                          ///\n");
     printf("/// 5. Produto                                                        ///\n");
-    printf("/// 6. Sair                                                           ///\n");
+    printf("/// 6. Consultas                                                      ///\n");
+    printf("/// 7.Sair                                                            ///\n");
     printf("///                                                                   ///\n");
     printf("/////////////////////////////////////////////////////////////////////////\n");
     printf("\n");
@@ -143,16 +152,38 @@ void menuProduto(void) {
     printf("///|                    *** SIG-Finance ***                          |///\n");
     printf("///|                                                                 |///\n");
     printf("///|_________________________________________________________________|///\n");
-    printf("///                     ** Menu Produto **                            ///\n");
+    printf("///                 ** Menu Produto/Serviço  **                       ///\n");
     printf("///                                                                   ///\n");
     printf("/// Escolha a opção desejada:                                         ///\n");
     printf("///                                                                   ///\n");
-    printf("/// 1. Cadastrar Produto                                              ///\n");
-    printf("/// 2. Alterar Produto                                                ///\n");
-    printf("/// 3. Excluir Produto                                                ///\n");
+    printf("/// 1. Incluir Novo Produto/ Serviço                                  ///\n");
+    printf("/// 2. Alterar Produto/ Serviço                                       ///\n");
+    printf("/// 3. Excluir Produto/ Serviço                                       ///\n");
     printf("/// 4. Voltar ao Menu Anterior                                        ///\n");
     printf("///                                                                   ///\n");
     printf("/////////////////////////////////////////////////////////////////////////\n");
     printf("\n");
          
 }
+
+void menuConsulta(void) {
+    printf("\n");
+    printf("/////////////////////////////////////////////////////////////////////////\n");
+    printf("///|                                                                 |///\n");
+    printf("///|                    *** SIG-Finance ***                          |///\n");
+    printf("///|                                                                 |///\n");
+    printf("///|_________________________________________________________________|///\n");
+    printf("///                    ** Menu Consulta  **                           ///\n");
+    printf("///                                                                   ///\n");
+    printf("/// Escolha a opção desejada:                                         ///\n");
+    printf("///                                                                   ///\n");
+    printf("/// 1. Consultar Orçamento                                            ///\n");
+    printf("/// 2. Consultar Despesas                                             ///\n");
+    printf("/// 3. Consultar Pagamentos                                           ///\n");
+    printf("/// 4. Voltar ao Menu Anterior                                        ///\n");
+    printf("///                                                                   ///\n");
+    printf("/////////////////////////////////////////////////////////////////////////\n");
+    printf("\n");
+}
+    
+
