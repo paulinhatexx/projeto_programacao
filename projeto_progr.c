@@ -23,7 +23,9 @@ int main (void){
     menuProduto();
     getchar();
     menuConsulta();
-
+int opcao;
+    printf("Escolha uma opção: ");
+    scanf("%d", opcao);
     
     return 0;
 }
