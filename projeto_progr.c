@@ -1,31 +1,35 @@
 #include <stdio.h>
 
 void menuSobre(void);
-void menuReceita(void);
-void menuPrincipal(void);
+void menuReceita(int);
+void menuPrincipal(int);
 void menuPagamentos(void);
 void menuDespesa(void);
 void menuProduto(void);
 void menuConsulta(void);
-
+void CadastrarReceita(void);
+void AtualizarReceita(void);
+void ExcluirReceita(void);
+int opcao;
 
 int main (void){
-    menuSobre();
-    getchar();
-    menuPrincipal();
-    getchar();
-    menuReceita();
-    getchar();
-    menuPagamentos();
-    getchar();
-    menuDespesa();
-    getchar();
-    menuProduto();
-    getchar();
-    menuConsulta();
-int opcao;
-    printf("Escolha uma opção: ");
-    scanf("%d", opcao);
+    
+    int opcao;
+    do{
+       menuPrincipal(opcao);
+       printf("Escolha uma opcão: ");
+       scanf("%d", &opcao);
+       getchar();
+    
+
+
+    }while(opcao!= 0);
+       
+
+
+   
+
+   
     
     return 0;
 }
@@ -58,9 +62,12 @@ void menuSobre(void){
     printf("///                                                                   ///\n");
     printf("/////////////////////////////////////////////////////////////////////////\n");
     printf("\n");
+
+    
+    
 }
 
-void menuPrincipal(void) {
+void menuPrincipal() {
     printf("\n");
     printf("/////////////////////////////////////////////////////////////////////////\n");
     printf("///|                                                                 |///\n");
@@ -74,17 +81,36 @@ void menuPrincipal(void) {
     printf("/// 1. Receitas                                                       ///\n");
     printf("/// 2. Pagamentos                                                     ///\n");
     printf("/// 3. Despesas                                                       ///\n");
-    printf("/// 4. Sobre                                                          ///\n");
-    printf("/// 5. Produto                                                        ///\n");
-    printf("/// 6. Consultas                                                      ///\n");
+    printf("/// 4. Produto                                                        ///\n");
+    printf("/// 5. Consultas                                                      ///\n");
+    printf("/// 6. Sobre                                                          ///\n");
     printf("/// 7.Sair                                                            ///\n");
     printf("///                                                                   ///\n");
     printf("/////////////////////////////////////////////////////////////////////////\n");
     printf("\n");
+    switch(opcao){
+        case 1: menuReceita();
+        break; 
+        case 2: menuPagamentos();
+        break;
+        case 3: menuDespesa();
+        break;
+        case 4: menuProduto();
+        break;
+        case 5: menuConsulta();
+        break;
+        case 6: menuSobre();
+        break;
+        case 7: printf("Obrigada por utlizar o SIG-Finance !!\n");
+        break;
+    }
          
 }
 
-void menuReceita(void) {
+void menuReceita(int) {
+    int opcao2
+    printf("escolha");
+    scanf("%d", &opcao2);
     printf("\n");
     printf("/////////////////////////////////////////////////////////////////////////\n");
     printf("///|                                                                 |///\n");
@@ -99,10 +125,26 @@ void menuReceita(void) {
     printf("/// 2. Atualizar receita                                              ///\n");
     printf("/// 3. Excluir Receita                                                ///\n");
     printf("/// 4. Voltar ao Menu Anterior                                        ///\n");
+    printf("/// 5. Voltar ao Menu Principal                                       ///\n");
+    printf("/// 6. Sair                                                           ///\n");
     printf("///                                                                   ///\n");
     printf("/////////////////////////////////////////////////////////////////////////\n");
     printf("\n");
-         
+    switch(opcao2){
+        case 1: CadastrarReceita();
+        break; 
+        case 2: AtualizarReceita();
+        break;
+        case 3: ExcluirReceita();
+        break;
+        case 4: menuReceita();
+        break;
+        case 5: menuPrincipal();
+        break;
+        case 6: printf("Obrigada por utlizar o SIG-Finance !!\n");
+        break;
+    
+    }     
 }
 
 void menuPagamentos(void) {
@@ -187,5 +229,71 @@ void menuConsulta(void) {
     printf("/////////////////////////////////////////////////////////////////////////\n");
     printf("\n");
 }
-    
+void CadastrarReceita(void) {
+    printf("\n");
+    printf("/////////////////////////////////////////////////////////////////////////\n");
+    printf("///|                                                                 |///\n");
+    printf("///|                    *** SIG-Finance ***                          |///\n");
+    printf("///|                                                                 |///\n");
+    printf("///|_________________________________________________________________|///\n");
+    printf("///                     ** Cadastrar Receita **                       ///\n");
+    printf("///                                                                   ///\n");
+    printf("/// Escolha a opção desejada:                                         ///\n");
+    printf("///                                                                   ///\n");
+    printf("/// 1.                                                                ///\n");
+    printf("/// 2.                                                                ///\n");
+    printf("/// 3.                                                                ///\n");
+    printf("/// 4.                                                                ///\n");
+    printf("/// 5. Voltar ao Menu Principal                                       ///\n");
+    printf("/// 6. Sair                                                           ///\n");
+    printf("///                                                                   ///\n");
+    printf("/////////////////////////////////////////////////////////////////////////\n");
+    printf("\n");
 
+}  
+
+void AtualizarReceita(void) {
+    printf("\n");
+    printf("/////////////////////////////////////////////////////////////////////////\n");
+    printf("///|                                                                 |///\n");
+    printf("///|                    *** SIG-Finance ***                          |///\n");
+    printf("///|                                                                 |///\n");
+    printf("///|_________________________________________________________________|///\n");
+    printf("///                     **Atualizar Receita **                        ///\n");
+    printf("///                                                                   ///\n");
+    printf("/// Escolha a opção desejada:                                         ///\n");
+    printf("///                                                                   ///\n");
+    printf("/// 1.                                                                ///\n");
+    printf("/// 2.                                                                ///\n");
+    printf("/// 3.                                                                ///\n");
+    printf("/// 4. Voltar ao Menu Anterior                                        ///\n");
+    printf("/// 5. Voltar ao Menu Principal                                       ///\n");
+    printf("/// 6. Sair                                                           ///\n");
+    printf("///                                                                   ///\n");
+    printf("/////////////////////////////////////////////////////////////////////////\n");
+    printf("\n");
+
+}
+
+void ExcluirReceita(void) {
+    printf("\n");
+    printf("/////////////////////////////////////////////////////////////////////////\n");
+    printf("///|                                                                 |///\n");
+    printf("///|                    *** SIG-Finance ***                          |///\n");
+    printf("///|                                                                 |///\n");
+    printf("///|_________________________________________________________________|///\n");
+    printf("///                   ** Excluir Receita **                           ///\n");
+    printf("///                                                                   ///\n");
+    printf("/// Escolha a opção desejada:                                         ///\n");
+    printf("///                                                                   ///\n");
+    printf("/// 1.                                                                ///\n");
+    printf("/// 2.                                                                ///\n");
+    printf("/// 3.                                                                ///\n");
+    printf("/// 4. Voltar ao Menu Anterior                                        ///\n");
+    printf("/// 5. Voltar ao Menu Principal                                       ///\n");
+    printf("/// 6. Sair                                                           ///\n");
+    printf("///                                                                   ///\n");
+    printf("/////////////////////////////////////////////////////////////////////////\n");
+    printf("\n");
+
+}
