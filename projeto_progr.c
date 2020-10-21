@@ -7,27 +7,32 @@ char menuDespesa(void);
 char menuProduto(void);
 char menuConsulta(void);
 void sobre(void);
+
 void moduloReceitas(void);
 void moduloPagamentos(void);
 void moduloDespesas(void);
 void moduloProduto(void);
 void moduloConsultas(void);
+
 void cadastrarReceita(void);
 void atualizarReceita(void);
 void excluirReceita(void);
+
 void cadastrarPagamento(void);
 void atualizarPagamento(void);
 void excluirPagamento(void);
+
 void cadastrarDespesa(void);
 void atualizarDespesa(void);
 void excluirDespesa(void);
+
 void incluirProduto(void);
 void alterarProduto(void);
 void excluirProduto(void);
+
 void consultarOrcamento(void);
 void consultarDespesas(void);
 void consultarPagamentos(void);
-int opcao;
 
 int main (void){
     
@@ -50,9 +55,9 @@ int main (void){
 
        }
 
-    }while(opcao!= 0);
+    }while(opcao!= '0');
     
-     return 0;
+    return 0;
 }
 
 
@@ -107,7 +112,7 @@ char telaPrincipal(void) {
     printf("/// 4. Produto                                                        ///\n");
     printf("/// 5. Consultas                                                      ///\n");
     printf("/// 6. Sobre                                                          ///\n");
-    printf("/// 7.Sair                                                            ///\n");
+    printf("/// 0.Sair                                                            ///\n");
     printf("/// Escolha a opção desejada:                                         ///\n");
     scanf("%c", &op);
     printf("/////////////////////////////////////////////////////////////////////////\n");
@@ -132,8 +137,7 @@ char menuReceita(void) {
     printf("/// 1. Cadastrar receita                                              ///\n");
     printf("/// 2. Atualizar receita                                              ///\n");
     printf("/// 3. Excluir Receita                                                ///\n");
-    printf("/// 4. Voltar ao Menu Anterior                                        ///\n");
-    printf("/// 5. Sair                                                           ///\n");
+    printf("/// 0. Voltar ao Menu Anterior                                        ///\n");
     printf("///                                                                   ///\n");
     printf("/// Escolha a opção desejada:                                         ///\n");
     scanf("%c", &op);
@@ -158,7 +162,7 @@ char menuPagamentos(void) {
     printf("/// 1. Cadastrar Pagamento                                            ///\n");
     printf("/// 2. Atualizar Pagamento                                            ///\n");
     printf("/// 3. Excluir Pagamento                                              ///\n");
-    printf("/// 4. Voltar ao Menu Anterior                                        ///\n");
+    printf("/// 0. Voltar ao Menu Anterior                                        ///\n");
     printf("/// Escolha a opção desejada:                                         ///\n");
     scanf("%c", &op);
     printf("/////////////////////////////////////////////////////////////////////////\n");
@@ -182,7 +186,7 @@ char menuDespesa(void) {
     printf("/// 1. Cadastrar Despesa                                              ///\n");
     printf("/// 2. Atualizar Despesa                                              ///\n");
     printf("/// 3. Excluir Despesa                                                ///\n");
-    printf("/// 4. Voltar ao Menu Anterior                                        ///\n");
+    printf("/// 0. Voltar ao Menu Anterior                                        ///\n");
     printf("/// Escolha a opção desejada:                                         ///\n");
     scanf("%c", &op);
     printf("/////////////////////////////////////////////////////////////////////////\n");
@@ -206,7 +210,7 @@ char menuProduto(void) {
     printf("/// 1. Incluir Novo Produto/ Serviço                                  ///\n");
     printf("/// 2. Alterar Produto/ Serviço                                       ///\n");
     printf("/// 3. Excluir Produto/ Serviço                                       ///\n");
-    printf("/// 4. Voltar ao Menu Anterior                                        ///\n");
+    printf("/// 0. Voltar ao Menu Anterior                                        ///\n");
     printf("/// Escolha a opção desejada:                                         ///\n");
     scanf("%c", &op);
     printf("/////////////////////////////////////////////////////////////////////////\n");
@@ -230,7 +234,7 @@ char menuConsulta(void) {
     printf("/// 1. Consultar Orçamento                                            ///\n");
     printf("/// 2. Consultar Despesas                                             ///\n");
     printf("/// 3. Consultar Pagamentos                                           ///\n");
-    printf("/// 4. Voltar ao Menu Anterior                                        ///\n");
+    printf("/// 0. Voltar ao Menu Anterior                                        ///\n");
     printf("/// Escolha a opção desejada:                                         ///\n");
     scanf("%c", &op);
     printf("/////////////////////////////////////////////////////////////////////////\n");
@@ -253,8 +257,7 @@ void cadastrarReceita(void) {
     printf("/// 2.                                                                ///\n");
     printf("/// 3.                                                                ///\n");
     printf("/// 4.                                                                ///\n");
-    printf("/// 5. Voltar ao Menu Principal                                       ///\n");
-    printf("/// 6. Sair                                                           ///\n");
+    printf("/// 5. Sair                                                           ///\n");
     printf("///                                                                   ///\n");
     printf("/////////////////////////////////////////////////////////////////////////\n");
     printf("\n");
@@ -276,8 +279,7 @@ void atualizarReceita(void) {
     printf("/// 2.                                                                ///\n");
     printf("/// 3.                                                                ///\n");
     printf("/// 4. Voltar ao Menu Anterior                                        ///\n");
-    printf("/// 5. Voltar ao Menu Principal                                       ///\n");
-    printf("/// 6. Sair                                                           ///\n");
+    printf("/// 5.Sair                                                            ///\n");
     printf("///                                                                   ///\n");
     printf("/////////////////////////////////////////////////////////////////////////\n");
     printf("\n");
@@ -299,8 +301,7 @@ void excluirReceita(void) {
     printf("/// 2.                                                                ///\n");
     printf("/// 3.                                                                ///\n");
     printf("/// 4. Voltar ao Menu Anterior                                        ///\n");
-    printf("/// 5. Voltar ao Menu Principal                                       ///\n");
-    printf("/// 6. Sair                                                           ///\n");
+    printf("/// 5. Sair                                                           ///\n");
     printf("///                                                                   ///\n");
     printf("/////////////////////////////////////////////////////////////////////////\n");
     printf("\n");
@@ -309,7 +310,7 @@ void excluirReceita(void) {
 
 
 void moduloReceitas(void){
-    char op;
+    char opcao;
     do{
         opcao= menuReceita();
         switch (opcao){
@@ -319,18 +320,14 @@ void moduloReceitas(void){
            break;
            case '3': excluirReceita();
            break;
-           case '4': telaPrincipal();
-           break;
-           case '5': printf("Obrigada por utilizar nosso programa!! ");
-           break;
 
        }
 
-    } while (opcao !=0);
+    } while (opcao != '0');
 }
 
 void moduloPagamentos(void){
-    char op;
+    char opcao;
     do{
         opcao= menuPagamentos();
         switch (opcao){
@@ -340,19 +337,15 @@ void moduloPagamentos(void){
            break;
            case '3': excluirPagamento();
            break;
-           case '4': telaPrincipal();
-           break;
-           case '5': printf("Obrigada por utilizar nosso programa!! ");
-           break;
-
+           
        }
 
-    } while (opcao !=0);
+    } while (opcao !='0');
 }
 
 
 void moduloDespesas(void){
-    char op;
+    char opcao;
     do{
         opcao= menuDespesa();
         switch (opcao){
@@ -362,18 +355,14 @@ void moduloDespesas(void){
            break;
            case '3': excluirDespesa();
            break;
-           case '4': telaPrincipal();
-           break;
-           case '5': printf("Obrigada por utilizar nosso programa!! ");
-           break;
 
        }
 
-    } while (opcao !=0);
+    } while (opcao !='0');
 }
 
 void moduloProduto(void){
-    char op;
+    char opcao;
     do{
         opcao= menuProduto();
         switch (opcao){
@@ -383,18 +372,13 @@ void moduloProduto(void){
            break;
            case '3': excluirProduto();
            break;
-           case '4': telaPrincipal();
-           break;
-           case '5': printf("Obrigada por utilizar nosso programa!! ");
-           break;
-
        }
 
-    } while (opcao !=0);
+    } while (opcao !='0');
 }
 
 void moduloConsultas(void){
-    char op;
+    char opcao;
     do{
         opcao= menuConsulta();
         switch (opcao){
@@ -404,74 +388,99 @@ void moduloConsultas(void){
            break;
            case '3': consultarPagamentos();
            break;
-           case '4': telaPrincipal();
-           break;
-           case '5': printf("Obrigada por utilizar nosso programa!! ");
-           break;
-
+           
        }
 
-    } while (opcao !=0);
+    } while (opcao !='0');
 }
 
 
 void cadastrarPagamento(void){
-    printf("\n Cadastrar Pagamento\n");
+    printf("\n///  **   Cadastrar Pagamento  **   ///\n\n");
+    printf("Em desenvolvimento...\n\n");
+    printf("Tecle ENTER pra continuar..");
+    getchar();
 }
 
 void atualizarPagamento(void){
-    printf("\n Atualizar Pagamento\n");
+    printf("\n///   **   Atualizar Pagamento  **///\n\n");
+    printf(" Em desenvolvimento...\n\n");
+    printf("Tecle ENTER pra continuar..");
     getchar();
 
 }
 
 void excluirPagamento(void){
-    printf("\n Excluir Pagamento\n");
-
+    printf("\n///   **   Excluir Pagamento  **   ///\n\n");
+    printf(" Em desenvolvimento...\n\n");
+    printf("Tecle ENTER pra continuar..");
+    getchar();
 }
 
 void cadastrarDespesa(void){
-    printf("\n Cadastrar Despesa\n");
-
+    printf("\n///   **   Cadastrar Despesa  **   ///\n\n");
+    printf(" Em desenvolvimento...\n\n");
+    printf("Tecle ENTER pra continuar..");
+    getchar();
 }
 
 void atualizarDespesa(void){
-    printf("\n Atualizar Despesa\n");
-
+    printf("\n///   **   Atualizar Despesa  **   ///\n\n");
+    printf(" Em desenvolvimento...\n\n");
+    printf("Tecle ENTER pra continuar..");
+    getchar();
 }
 
 void excluirDespesa(void){
-    printf("\n Excluir Despesa\n");
-
+    printf("\n///   **   Excluir Despesa  **   ///\n\n");
+    printf(" Em desenvolvimento...\n\n");
+    printf("Tecle ENTER pra continuar..");
+    getchar();
 }
 
 void incluirProduto(void){
-    printf("\n Incluir Produto\n");
-
+    printf("\n///   **   Incluir Produto  **   ///\n\n");
+    printf(" Em desenvolvimento...\n\n");
+    printf("Tecle ENTER pra continuar..");
+    getchar();
 }
 
 void alterarProduto(void){
-    printf("\n Alterar Produto\n");
-
+    printf("\n///   **   Alterar Produto  **   ///\n\n");
+    printf(" Em desenvolvimento...\n\n");
+    printf("Tecle ENTER pra continuar..");
+    getchar();
 }
 
 void excluirProduto(void){
-    printf("\n Excluir Produto\n");
+    printf("\n///   **   Excluir Produto  **   ///\n\n");
+    printf(" Em desenvolvimento...\n\n");
+    printf("Tecle ENTER pra continuar..");
+    getchar();
 
 }
 
 void consultarOrcamento(void){
-    printf("\n Consultar Orçamento\n");
+    printf("\n///   **  Consultar Orçamento **  ///\n\n");
+    printf(" Em desenvolvimento...\n\n");
+    printf("Tecle ENTER pra continuar..");
+    getchar();
 
 }
 
 void consultarDespesas(void){
-    printf("\n Consultar Despesas\n");
+    printf("\n///   ** Consultar Despesas **   ///\n\n");
+    printf(" Em desenvolvimento...\n\n");
+    printf("Tecle ENTER pra continuar..");
+    getchar();
 
 }
 
 void consultarPagamentos(void){
-    printf("\n Consultar Pagamento\n");
+    printf("\n///  ** Consultar Pagamento **   ///\n\n");
+    printf(" Em desenvolvimento...\n\n");
+    printf("Tecle ENTER pra continuar..");
+    getchar();
 
 }
 
