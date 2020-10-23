@@ -242,71 +242,6 @@ char menuConsulta(void) {
     getchar();
     return op;
 }
-void cadastrarReceita(void) {
-    printf("\n");
-    printf("/////////////////////////////////////////////////////////////////////////\n");
-    printf("///|                                                                 |///\n");
-    printf("///|                    *** SIG-Finance ***                          |///\n");
-    printf("///|                                                                 |///\n");
-    printf("///|_________________________________________________________________|///\n");
-    printf("///                     ** Cadastrar Receita **                       ///\n");
-    printf("///                                                                   ///\n");
-    printf("/// Escolha a opção desejada:                                         ///\n");
-    printf("///                                                                   ///\n");
-    printf("/// 1.                                                                ///\n");
-    printf("/// 2.                                                                ///\n");
-    printf("/// 3.                                                                ///\n");
-    printf("/// 4.                                                                ///\n");
-    printf("/// 5. Sair                                                           ///\n");
-    printf("///                                                                   ///\n");
-    printf("/////////////////////////////////////////////////////////////////////////\n");
-    printf("\n");
-
-}  
-
-void atualizarReceita(void) {
-    printf("\n");
-    printf("/////////////////////////////////////////////////////////////////////////\n");
-    printf("///|                                                                 |///\n");
-    printf("///|                    *** SIG-Finance ***                          |///\n");
-    printf("///|                                                                 |///\n");
-    printf("///|_________________________________________________________________|///\n");
-    printf("///                     **Atualizar Receita **                        ///\n");
-    printf("///                                                                   ///\n");
-    printf("/// Escolha a opção desejada:                                         ///\n");
-    printf("///                                                                   ///\n");
-    printf("/// 1.                                                                ///\n");
-    printf("/// 2.                                                                ///\n");
-    printf("/// 3.                                                                ///\n");
-    printf("/// 4. Voltar ao Menu Anterior                                        ///\n");
-    printf("/// 5.Sair                                                            ///\n");
-    printf("///                                                                   ///\n");
-    printf("/////////////////////////////////////////////////////////////////////////\n");
-    printf("\n");
-
-}
-
-void excluirReceita(void) {
-    printf("\n");
-    printf("/////////////////////////////////////////////////////////////////////////\n");
-    printf("///|                                                                 |///\n");
-    printf("///|                    *** SIG-Finance ***                          |///\n");
-    printf("///|                                                                 |///\n");
-    printf("///|_________________________________________________________________|///\n");
-    printf("///                   ** Excluir Receita **                           ///\n");
-    printf("///                                                                   ///\n");
-    printf("/// Escolha a opção desejada:                                         ///\n");
-    printf("///                                                                   ///\n");
-    printf("/// 1.                                                                ///\n");
-    printf("/// 2.                                                                ///\n");
-    printf("/// 3.                                                                ///\n");
-    printf("/// 4. Voltar ao Menu Anterior                                        ///\n");
-    printf("/// 5. Sair                                                           ///\n");
-    printf("///                                                                   ///\n");
-    printf("/////////////////////////////////////////////////////////////////////////\n");
-    printf("\n");
-
-}
 
 
 void moduloReceitas(void){
@@ -394,6 +329,26 @@ void moduloConsultas(void){
     } while (opcao !='0');
 }
 
+
+void cadastrarReceita(void){
+   printf("\n///  **   Cadastrar Receita  **   ///\n\n");
+    printf("Em desenvolvimento...\n\n");
+    printf("Tecle ENTER pra continuar..");
+    getchar(); 
+}
+void atualizarReceita(void){
+printf("\n///   **    Atualizar Receita   **   ///\n\n");
+    printf("Em desenvolvimento...\n\n");
+    printf("Tecle ENTER pra continuar..");
+    getchar();
+}
+
+void excluirReceita(void){
+    printf("\n///  **    Excluir Receita   **   ///\n\n");
+    printf("Em desenvolvimento...\n\n");
+    printf("Tecle ENTER pra continuar..");
+    getchar();
+}
 
 void cadastrarPagamento(void){
     printf("\n///  **   Cadastrar Pagamento  **   ///\n\n");
