@@ -5,3 +5,5 @@ char menuDespesa(void);
 char menuProduto(void);
 char menuConsulta(void);
 void sobre(void);
+int dataValida(int);
+int bissexto(int);
