@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include"menus.h"
 #include"validacoes.h"
+#include"modulos.h"
 
 
 
@@ -28,7 +29,7 @@ void excluirProduto(void);
 
 void consultarOrcamento(void);
 void consultarDespesas(void);
-void consultarPagamentos(void);
+void consultarPagamentos(void)
 
 int main (void){
     
