@@ -1,5 +1,7 @@
 #include <stdio.h>
-#include"funcoes.h"
+#include"menus.h"
+#include"validacoes.h"
+
 
 
 void moduloReceitas(void);
