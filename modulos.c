@@ -1,5 +1,27 @@
 #include<stdio.h>
 #include"menus.h"
+#include"cruds.h"
+
+void cadastrarReceita(void);
+void atualizarReceita(void);
+void excluirReceita(void);
+
+void cadastrarPagamento(void);
+void atualizarPagamento(void);
+void excluirPagamento(void);
+
+void cadastrarDespesa(void);
+void atualizarDespesa(void);
+void excluirDespesa(void);
+
+void incluirProduto(void);
+void alterarProduto(void);
+void excluirProduto(void);
+
+void consultarOrcamento(void);
+void consultarDespesas(void);
+void consultarPagamentos(void);
+
 
 void moduloReceitas(void){
     char opcao;
@@ -87,118 +109,3 @@ void moduloConsultas(void){
 }
 
 
-void cadastrarReceita(void){
-   char op;
-   printf("\n///  **   Cadastrar Receita  **   ///\n\n");
-   printf("\n///_______________________________///\n\n");
-   printf("\n");
-   printf("Digite o tipo de receita: ");
-   scanf("%c", &op);
-   printf("\n///  1. Salário  2.Comissões 3. Aluguéis 4. Benefícios  5. Outros ");
-   
-    printf("Em desenvolvimento...\n\n");
-    printf("Tecle ENTER pra continuar..");
-    getchar(); 
-}
-void atualizarReceita(void){
-printf("\n///   **    Atualizar Receita   **   ///\n\n");
-    printf("Em desenvolvimento...\n\n");
-    printf("Tecle ENTER pra continuar..");
-    getchar();
-}
-
-void excluirReceita(void){
-    printf("\n///  **    Excluir Receita   **   ///\n\n");
-    printf("Em desenvolvimento...\n\n");
-    printf("Tecle ENTER pra continuar..");
-    getchar();
-}
-
-void cadastrarPagamento(void){
-    printf("\n///  **   Cadastrar Pagamento  **   ///\n\n");
-    printf("Em desenvolvimento...\n\n");
-    printf("Tecle ENTER pra continuar..");
-    getchar();
-}
-
-void atualizarPagamento(void){
-    printf("\n///   **   Atualizar Pagamento  **///\n\n");
-    printf(" Em desenvolvimento...\n\n");
-    printf("Tecle ENTER pra continuar..");
-    getchar();
-
-}
-
-void excluirPagamento(void){
-    printf("\n///   **   Excluir Pagamento  **   ///\n\n");
-    printf(" Em desenvolvimento...\n\n");
-    printf("Tecle ENTER pra continuar..");
-    getchar();
-}
-
-void cadastrarDespesa(void){
-    printf("\n///   **   Cadastrar Despesa  **   ///\n\n");
-    printf(" Em desenvolvimento...\n\n");
-    printf("Tecle ENTER pra continuar..");
-    getchar();
-}
-
-void atualizarDespesa(void){
-    printf("\n///   **   Atualizar Despesa  **   ///\n\n");
-    printf(" Em desenvolvimento...\n\n");
-    printf("Tecle ENTER pra continuar..");
-    getchar();
-}
-
-void excluirDespesa(void){
-    printf("\n///   **   Excluir Despesa  **   ///\n\n");
-    printf(" Em desenvolvimento...\n\n");
-    printf("Tecle ENTER pra continuar..");
-    getchar();
-}
-
-void incluirProduto(void){
-    printf("\n///   **   Incluir Produto  **   ///\n\n");
-    printf(" Em desenvolvimento...\n\n");
-    printf("Tecle ENTER pra continuar..");
-    getchar();
-}
-
-void alterarProduto(void){
-    printf("\n///   **   Alterar Produto  **   ///\n\n");
-    printf(" Em desenvolvimento...\n\n");
-    printf("Tecle ENTER pra continuar..");
-    getchar();
-}
-
-void excluirProduto(void){
-    printf("\n///   **   Excluir Produto  **   ///\n\n");
-    printf(" Em desenvolvimento...\n\n");
-    printf("Tecle ENTER pra continuar..");
-    getchar();
-
-}
-
-void consultarOrcamento(void){
-    printf("\n///   **  Consultar Orçamento **  ///\n\n");
-    printf(" Em desenvolvimento...\n\n");
-    printf("Tecle ENTER pra continuar..");
-    getchar();
-
-}
-
-void consultarDespesas(void){
-    printf("\n///   ** Consultar Despesas **   ///\n\n");
-    printf(" Em desenvolvimento...\n\n");
-    printf("Tecle ENTER pra continuar..");
-    getchar();
-
-}
-
-void consultarPagamentos(void){
-    printf("\n///  ** Consultar Pagamento **   ///\n\n");
-    printf(" Em desenvolvimento...\n\n");
-    printf("Tecle ENTER pra continuar..");
-    getchar();
-
-}
