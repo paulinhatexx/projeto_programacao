@@ -88,10 +88,12 @@ void moduloConsultas(void){
 
 
 void cadastrarReceita(void){
+   char op;
    printf("\n///  **   Cadastrar Receita  **   ///\n\n");
    printf("\n///_______________________________///\n\n");
    printf("\n");
    printf("Digite o tipo de receita: ");
+   scanf("%c", &op);
    printf("\n///  1. Salário  2.Comissões 3. Aluguéis 4. Benefícios  5. Outros ");
    
     printf("Em desenvolvimento...\n\n");
