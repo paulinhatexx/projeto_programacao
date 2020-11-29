@@ -3,7 +3,6 @@
 #include"modulos.h"
 #include"validacoes.h"
 
-void cadastrarReceita(void);
 void atualizarReceita(void);
 void excluirReceita(void);
 
@@ -26,8 +25,8 @@ void consultarPagamentos(void);
 
 
 void cadastrarReceita(void){
-   char tipo_receita [15];
-   float valor_receita;
+ char tipo_receita [15];
+ float valor_receita;
 
    printf("\n///  **   Cadastrar Receita  **   ///\n\n");
    printf("\n///_______________________________///\n\n");
@@ -38,6 +37,7 @@ void cadastrarReceita(void){
    scanf("%f", &valor_receita);
    getchar(); 
 }
+
 void atualizarReceita(void){
 printf("\n///   **    Atualizar Receita   **   ///\n\n");
     printf("Em desenvolvimento...\n\n");
@@ -73,7 +73,9 @@ void cadastrarPagamento(void){
     while(!dataValida(data_venc[0], data_venc[1], data_venc[2])){
     printf("\nData invalida! Digite novamente (dd/mm/aaaa): ");
     scanf("%d/%d/%d",&data_venc[0], &data_venc[1], &data_venc[2]);
+    }
     getchar();
+
 }
 
 void atualizarPagamento(void){
@@ -93,7 +95,7 @@ void excluirPagamento(void){
 
 void cadastrarDespesa(void){
 
-    char tipo_despesa[];
+    char tipo_despesa[25];
     float valor_despesa;
     int data [3];
     int dia = data[0];
@@ -114,6 +116,7 @@ void cadastrarDespesa(void){
     scanf("%d/%d/%d",&data[0], &data[1], &data[2]);
     getchar();
 }
+}
 
 void atualizarDespesa(void){
     printf("\n///   **   Atualizar Despesa  **   ///\n\n");
@@ -130,7 +133,7 @@ void excluirDespesa(void){
 }
 
 void incluirProduto(void){
-    char tipo_produto[];
+    char tipo_produto[25];
     float valor_produto;
     int data [3];
     int dia = data[0];
@@ -147,8 +150,10 @@ void incluirProduto(void){
     while(!dataValida(data[0], data[1], data[2])){
     printf("\nData invalida! Digite novamente (dd/mm/aaaa): ");
     scanf("%d/%d/%d",&data[0], &data[1], &data[2]);
+    }
     getchar();
  }
+
 
 void alterarProduto(void){
     printf("\n///   **   Alterar Produto  **   ///\n\n");
@@ -186,5 +191,4 @@ void consultarPagamentos(void){
     printf(" Em desenvolvimento...\n\n");
     printf("Tecle ENTER pra continuar..");
     getchar();
-
 }
