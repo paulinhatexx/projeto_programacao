@@ -1,4 +1,5 @@
 #include<stdio.h>
+#include"leituras.h"
 void sobre(void){
     printf("\n");
     printf("/////////////////////////////////////////////////////////////////////////\n");
