@@ -1,4 +1,5 @@
 #include<stdio.h>
+#include <string.h>
 
 int dataValida(int dd, int mm, int aa) {
   int maiorDia;
@@ -31,4 +32,20 @@ int bissexto(int aa) {
   } else {
     return 0;
   }
+}
+
+
+int ehLetra(char *c){
+    int tam = strlen(c);
+    char letra;
+    for (int i = 0; i < tam; i++) {
+        letra = c[i];
+        if (letra >='A' && letra <='Z') {
+            return 1;
+        } else if (letra >='a' && letra <='z') {
+            return 1;
+        }else {
+            return 0;
+        }
+     }
 }
