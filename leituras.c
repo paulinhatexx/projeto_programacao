@@ -17,6 +17,30 @@ char* lerReceita(void){
 
 }
 
+char* lerData(void){
+    char *data;
+    data= leitura();
+    while(!dataValida(data)){
+        printf("Data Inválida!!");
+        printf("Tente Novamente!");
+        data = leitura();
+    }
+    return data;
+
+}
+
+char* lerDespesa(void){
+    char *despesa;
+    despesa= leitura();
+    while(!ehLetra(despesa)){
+        printf("Dados Inválidos!!");
+        printf("Tente Novamente!");
+        despesa = leitura();
+    }
+    return despesa;
+
+}
+
 
 
 
