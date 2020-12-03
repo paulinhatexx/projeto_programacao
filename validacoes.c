@@ -49,3 +49,16 @@ int ehLetra(char *c){
         }
      }
 }
+
+
+int ehDigito(char *c){
+    int tam = strlen(c);
+    char digito;
+    for (int i = 0; i < tam; i++) {
+        digito = c[i];
+        if (digito >='0' && digito <='9') {
+            return 1;
+        } else {
+           return 0;
+        }
+ }
