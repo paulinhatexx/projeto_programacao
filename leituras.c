@@ -40,6 +40,42 @@ char* lerDespesa(void){
     return despesa;
 
 }
+char* lerPagamento(void){
+    char *pagamento;
+    pagamento= leitura();
+    while(!ehLetra(pagamento)){
+        printf("Dados Inválidos!!");
+        printf("Tente Novamente!");
+        pagamento = leitura();
+    }
+    return pagamento;
+
+}
+
+char* lerProduto(void){
+    char *produto;
+    produto= leitura();
+    while(!ehLetra(produto)){
+        printf("Dados Inválidos!!");
+        printf("Tente Novamente!");
+        produto = leitura();
+    }
+    return produto;
+
+}
+
+float* lerValor(void){
+    char *valor;
+    valor= leitura();
+    while(!eh(valor)){
+        printf("Dados Inválidos!!");
+        printf("Tente Novamente!");
+        valor = leitura();
+    }
+    return valor;
+
+}
+
 
 
 
