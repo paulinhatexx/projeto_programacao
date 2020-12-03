@@ -3,11 +3,12 @@
 #include <stdlib.h>
 #include "validacoes.h"
 
+
 char* leitura(void);
 
 char* lerReceita(void){
     char *receita;
-    receita= leitura();
+    receita= leitura();                         
     while(!ehLetra(receita)){
         printf("Dados Inválidos!!");
         printf("Tente Novamente!");
@@ -67,7 +68,7 @@ char* lerProduto(void){
 float* lerValor(void){
     char *valor;
     valor= leitura();
-    while(!eh(valor)){
+    while(!ehDigito(valor)){
         printf("Dados Inválidos!!");
         printf("Tente Novamente!");
         valor = leitura();
