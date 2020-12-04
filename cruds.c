@@ -23,20 +23,39 @@ void consultarOrcamento(void);
 void consultarDespesas(void);
 void consultarPagamentos(void);
 
+typedef struct receita{
+   char *tipo;
+   char *valor;
+};
+
+typedef struct receita Receita;
+
+ 
 
 
 void cadastrarReceita(void){
  char tipo_receita [15];
  float valor_receita;
-
-   printf("\n///  **   Cadastrar Receita  **   ///\n\n");
-   printf("\n///_______________________________///\n\n");
-   printf("\n                                        \n");
-   printf("Digite o tipo de receita:                 \n");
-   scanf("%s", tipo_receita);
-   printf("Digite o valor da receita:                \n");
-   scanf("%f", &valor_receita);
-   getchar(); 
+   printf("\n");
+    printf("/////////////////////////////////////////////////////////////////////////\n");
+    printf("///|                                                                 |///\n");
+    printf("///|                    *** SIG-Finance ***                          |///\n");
+    printf("///|                                                                 |///\n");
+    printf("///|_________________________________________________________________|///\n");
+    printf("///                      ** Cadastrar Receita **                      ///\n");
+    printf("///                                                                   ///\n");
+    printf("///                                                                   ///\n");
+    printf("///  Digite o tipo de receita:                                        ///\n");
+    receita.tipo = lerReceita();
+    printf("///"Digite o valor da receita:                                          ///\n");
+    receita.valor = lerValor ();
+    printf("///                                                                   ///\n");
+    printf("///                                                                   ///\n");
+    
+    printf("/////////////////////////////////////////////////////////////////////////\n");
+    printf("\n");
+    getchar();
+   
 }
 
 void atualizarReceita(void){
