@@ -19,12 +19,13 @@ char* lerReceita(void){
 }
 
 char* lerData(void){
-    char *data;
-    data= leitura();
+    char data[11];
+    printf("Digite a data no formato dd/mm/aaaa: ");
+    scanf("%c",&data);
     while(!dataValida(data)){
         printf("Data Inválida!!");
         printf("Tente Novamente!");
-        data = leitura();
+        scanf("%c",&data);;
     }
     return data;
 
