@@ -61,4 +61,5 @@ int ehDigito(char *c){
         } else {
            return 0;
         }
+    }
  }
