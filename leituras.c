@@ -18,18 +18,7 @@ char* lerReceita(void){
 
 }
 
-char* lerData(void){
-    char data[11];
-    printf("Digite a data no formato dd/mm/aaaa: ");
-    scanf("%c",&data);
-    while(!dataValida(data)){
-        printf("Data Inválida!!");
-        printf("Tente Novamente!");
-        scanf("%c",&data);;
-    }
-    return data;
-
-}
+   
 
 char* lerDespesa(void){
     char *despesa;
@@ -66,7 +55,7 @@ char* lerProduto(void){
 
 }
 
-float* lerValor(void){
+char* lerValor(void){
     char *valor;
     valor= leitura();
     while(!ehDigito(valor)){
