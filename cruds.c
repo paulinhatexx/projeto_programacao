@@ -1,4 +1,5 @@
 #include<stdio.h>
+#include<stdlib.h>
 #include"menus.h"
 #include"modulos.h"
 #include"validacoes.h"
@@ -23,12 +24,37 @@ void consultarOrcamento(void);
 void consultarDespesas(void);
 void consultarPagamentos(void);
 
+typedef struct receita Receita;
+typedef struct despesa Despesa;
+typedef struct pagamento Pagamento;
+typedef struct produto Produto;
+
 typedef struct receita{
-   char *tipo;
-   char *valor;
+   char tipo[25];
+   char valor[8];
+   char data[8];
 };
 
-typedef struct receita Receita;
+typedef struct despesa{
+   char tipo[25];
+   char valor[8];
+   char data[8];
+};
+
+typedef struct pagamento{
+   char tipo[25];
+   char valor[8];
+   char data[8];
+   char status;
+};
+
+typedef struct produto{
+   char tipo[25];
+   char valor[8];
+   char data[8];
+};
+
+
 
  
 
@@ -47,8 +73,10 @@ void cadastrarReceita(void){
     printf("///                                                                   ///\n");
     printf("///  Digite o tipo de receita:                                        ///\n");
     receita.tipo = lerReceita();
-    printf("///"Digite o valor da receita:                                          ///\n");
+    printf("///Digite o valor da receita:                                        /// \n");
     receita.valor = lerValor ();
+    printf("/// Digite a data da receita:                                         /// \n");
+    data
     printf("///                                                                   ///\n");
     printf("///                                                                   ///\n");
     
