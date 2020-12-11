@@ -1,28 +1,12 @@
 #include<stdio.h>
 #include<stdlib.h>
+#include <string.h>
 #include"menus.h"
 #include"modulos.h"
 #include"validacoes.h"
 #include"leituras.h"
 
-void atualizarReceita(void);
-void excluirReceita(void);
 
-void cadastrarPagamento(void);
-void atualizarPagamento(void);
-void excluirPagamento(void);
-
-void cadastrarDespesa(void);
-void atualizarDespesa(void);
-void excluirDespesa(void);
-
-void incluirProduto(void);
-void alterarProduto(void);
-void excluirProduto(void);
-
-void consultarOrcamento(void);
-void consultarDespesas(void);
-void consultarPagamentos(void);
 
 typedef struct receita Receita;
 typedef struct despesa Despesa;
@@ -30,9 +14,10 @@ typedef struct pagamento Pagamento;
 typedef struct produto Produto;
 
 typedef struct receita{
-   char tipo[25];
-   char valor[8];
-   char data[8];
+   char origem[26];
+   float valor[9];
+   char data[11];
+   char status;
 };
 
 typedef struct despesa{
@@ -56,13 +41,10 @@ typedef struct produto{
 
 
 
- 
-
-
-void cadastrarReceita(void){
- char tipo_receita [15];
- float valor_receita;
-   printf("\n");
+   Receita* cadastrarReceita(void){
+    Receita* rec;
+    rec = (Receita*) malloc(sizeof(Receita));
+    printf("\n");
     printf("/////////////////////////////////////////////////////////////////////////\n");
     printf("///|                                                                 |///\n");
     printf("///|                    *** SIG-Finance ***                          |///\n");
@@ -71,12 +53,13 @@ void cadastrarReceita(void){
     printf("///                      ** Cadastrar Receita **                      ///\n");
     printf("///                                                                   ///\n");
     printf("///                                                                   ///\n");
-    printf("///  Digite o tipo de receita:                                        ///\n");
-    receita.tipo = lerReceita();
+    printf("///  Digite a origem da receita:                                      ///\n");
+    scanf(" %25[^\n]", rec->origem);
     printf("///Digite o valor da receita:                                        /// \n");
-    receita.valor = lerValor ();
-    printf("/// Digite a data da receita:                                         /// \n");
-    data
+    scanf(" %8[^\n]", rec->valor);
+    printf("/// Digite a data da receita (dd/mm/aaaa):                           /// \n");
+    scanf(" %10[^\n]", rec->data);
+    rec->status = 'a';
     printf("///                                                                   ///\n");
     printf("///                                                                   ///\n");
     
