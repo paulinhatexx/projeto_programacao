@@ -21,15 +21,15 @@ typedef struct receita{
 };
 
 typedef struct despesa{
-   char tipo[25];
-   char valor[8];
-   char data[8];
+   char tipo[26];
+   float valor[9];
+   char data[11];
 };
 
 typedef struct pagamento{
-   char tipo[25];
-   char valor[8];
-   char data[8];
+   char destino[31];
+   float valor[9];
+   char data[11];
    char status;
 };
 
@@ -38,8 +38,6 @@ typedef struct produto{
    char valor[8];
    char data[8];
 };
-
-
 
    Receita* cadastrarReceita(void){
     Receita* rec;
@@ -65,7 +63,7 @@ typedef struct produto{
     
     printf("/////////////////////////////////////////////////////////////////////////\n");
     printf("\n");
-    getchar();
+    return rec;
    
 }
 
@@ -83,28 +81,30 @@ void excluirReceita(void){
     getchar();
 }
 
-void cadastrarPagamento(void){
-    char tipo_pagamento[50];
-    float valor_pagamento;
-    int data_venc [3];
-    int dia = data_venc[0];
-    int mes = data_venc[1];
-    int ano = data_venc[2];
-
-    printf("\n///  **   Cadastrar Pagamento  **   ///\n\n");
-    printf("\n///_______________________________///\n\n");
-    printf("\n                                        \n");
-    printf("Digite o tipo de Pagamento:               \n");
-    scanf("%s", tipo_pagamento );
+Pagamento* cadastrarPagamento(void){
+    Pagamento* pag;
+    pag = (Pagamento*) malloc(sizeof(Pagamento));
+    printf("\n");
+    printf("/////////////////////////////////////////////////////////////////////////\n");
+    printf("///|                                                                 |///\n");
+    printf("///|                    *** SIG-Finance ***                          |///\n");
+    printf("///|                                                                 |///\n");
+    printf("///|_________________________________________________________________|///\n");
+    printf("///                      ** Cadastrar Pagamento **                    ///\n");
+    printf("///                                                                   ///\n");
+    printf("///                                                                   ///\n");
+    printf("Digite o destino do Pagamento:               \n");
+    scanf(" %30[^\n]", pag->destino);
     printf("Digite o valor do pagamento:                \n");
-    scanf("%f", &valor_pagamento);
+    scanf("%8[^\n]" , pag->valor);
     printf("Digite a data de vencimento (dd/mm/aaaa): ");
-    scanf("%d/%d/%d",&data_venc[0], &data_venc[1], &data_venc[2]);
-    dataValida(dia, mes, ano);
-    while(!dataValida(data_venc[0], data_venc[1], data_venc[2])){
-    printf("\nData invalida! Digite novamente (dd/mm/aaaa): ");
-    scanf("%d/%d/%d",&data_venc[0], &data_venc[1], &data_venc[2]);
-    }
+    scanf("%10[^\n]", pag->data);
+    pag->status = 'a';
+    printf("///                                                                   ///\n");
+    printf("///                                                                   ///\n");
+    printf("/////////////////////////////////////////////////////////////////////////\n");
+    printf("\n");
+    return pag;
     getchar();
 
 }
@@ -124,29 +124,29 @@ void excluirPagamento(void){
     getchar();
 }
 
-void cadastrarDespesa(void){
-
-    char tipo_despesa[25];
-    float valor_despesa;
-    int data [3];
-    int dia = data[0];
-    int mes = data[1];
-    int ano = data[2];
-    printf("\n///   **   Cadastrar Despesa  **   ///\n\n");
-    printf("\n///_______________________________///\n\n");
-    printf("\n                                        \n");
+Despesa* cadastrarDespesa(void){
+    Despesa* des;
+    des = (Despesa*) malloc(sizeof(Despesa));
+    printf("\n");
+    printf("/////////////////////////////////////////////////////////////////////////\n");
+    printf("///|                                                                 |///\n");
+    printf("///|                    *** SIG-Finance ***                          |///\n");
+    printf("///|                                                                 |///\n");
+    printf("///|_________________________________________________________________|///\n");
+    printf("///                      ** Cadastrar Despesa **                      ///\n");
+    printf("///                                                                   ///\n");
+    printf("///                                                                   ///\n");
     printf("Digite o tipo de Despesa :               \n");
-    scanf("%s", tipo_despesa );
+    scanf("%25[^\n]", des->tipo );
     printf("Digite o valor da despesa :                \n");
-    scanf("%f", &valor_despesa);
+    scanf("%25[^\n]", des->valor);
     printf("Digite a data de despesa (dd/mm/aaaa): ");
-    scanf("%d/%d/%d",&data[0], &data[1], &data[2]);
-    dataValida(dia, mes, ano);
-    while(!dataValida(data[0], data[1], data[2])){
-    printf("\nData invalida! Digite novamente (dd/mm/aaaa): ");
-    scanf("%d/%d/%d",&data[0], &data[1], &data[2]);
-    getchar();
-}
+    scanf("%%25[^\n]", des->data);
+    printf("///                                                                   ///\n");
+    printf("///                                                                   ///\n");
+    printf("/////////////////////////////////////////////////////////////////////////\n");
+    printf("\n");
+    return des;
 }
 
 void atualizarDespesa(void){
