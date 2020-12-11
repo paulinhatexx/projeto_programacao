@@ -1,1 +1,1 @@
-
+Receita* cadastrarReceita(void);
