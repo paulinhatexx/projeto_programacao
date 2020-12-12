@@ -34,9 +34,9 @@ typedef struct pagamento{
 };
 
 typedef struct produto{
-   char tipo[25];
-   char valor[8];
-   char data[8];
+   char tipo[26];
+   char valor[9];
+   char data[11];
 };
 
    Receita* cadastrarReceita(void){
@@ -139,9 +139,9 @@ Despesa* cadastrarDespesa(void){
     printf("Digite o tipo de Despesa :               \n");
     scanf("%25[^\n]", des->tipo );
     printf("Digite o valor da despesa :                \n");
-    scanf("%25[^\n]", des->valor);
+    scanf("%8[^\n]", des->valor);
     printf("Digite a data de despesa (dd/mm/aaaa): ");
-    scanf("%%25[^\n]", des->data);
+    scanf("%10[^\n]", des->data);
     printf("///                                                                   ///\n");
     printf("///                                                                   ///\n");
     printf("/////////////////////////////////////////////////////////////////////////\n");
@@ -163,26 +163,32 @@ void excluirDespesa(void){
     getchar();
 }
 
-void incluirProduto(void){
-    char tipo_produto[25];
-    float valor_produto;
-    int data [3];
-    int dia = data[0];
-    int mes = data[1];
-    int ano = data[2];
+Produto* incluirProduto(void){
+     Produto* pro;
+    pro = (Produto*) malloc(sizeof(Produto));
+    printf("\n");
+    printf("/////////////////////////////////////////////////////////////////////////\n");
+    printf("///|                                                                 |///\n");
+    printf("///|                    *** SIG-Finance ***                          |///\n");
+    printf("///|                                                                 |///\n");
+    printf("///|_________________________________________________________________|///\n");
+    printf("///                      ** Cadastrar Produto **                      ///\n");
+    printf("///                                                                   ///\n");
+    printf("///                                                                   ///\n");
     printf("\n///   **   Incluir Produto  **   ///\n\n");
     printf("Digite o tipo de Produto :               \n");
-    scanf("%s", tipo_produto );
+    scanf("%25[^\n]", pro->tipo  );
     printf("Digite o valor do produto :              \n");
-    scanf("%f", &valor_produto);
+    scanf("%25[^\n]", pro->valor);
     printf("Digite a data de compra (dd/mm/aaaa): ");
-    scanf("%d/%d/%d",&data[0], &data[1], &data[2]);
+    scanf("%25[^\n]", pro->data);
     dataValida(dia, mes, ano);
     while(!dataValida(data[0], data[1], data[2])){
     printf("\nData invalida! Digite novamente (dd/mm/aaaa): ");
     scanf("%d/%d/%d",&data[0], &data[1], &data[2]);
+    return pro;
     }
-    getchar();
+  
  }
 
 
