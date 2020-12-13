@@ -85,10 +85,24 @@ void exibeReceita (Receita* rec){
 }
 
 void atualizarReceita(void){
-printf("\n///   **    Atualizar Receita   **   ///\n\n");
-    printf("Em desenvolvimento...\n\n");
-    printf("Tecle ENTER pra continuar..");
-    getchar();
+    FILE* fp;
+    Receita* rec;
+    printf("\n");
+    printf("/////////////////////////////////////////////////////////////////////////\n");
+    printf("///|                                                                 |///\n");
+    printf("///|                    *** SIG-Finance ***                          |///\n");
+    printf("///|                                                                 |///\n");
+    printf("///|_________________________________________________________________|///\n");
+    printf("///                    **   Atualizar  Receita **                     ///\n");
+    printf("///                                                                   ///\n");
+    printf("///                                                                   ///\n");
+    printf("///  Digite a receita a ser alterada:                                 ///\n");
+    scanf(" %25[
+    
+    printf("///                                                                   ///\n");
+    printf("///                                                                   ///\n");
+    printf("/////////////////////////////////////////////////////////////////////////\n");
+    printf("\n");
 }
 
 void excluirReceita(void){
