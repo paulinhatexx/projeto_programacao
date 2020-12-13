@@ -8,3 +8,5 @@ void exibePagamento(Pagamento* pag);
 void gravaPagamento(Pagamento* pag);
 void exibeDespesa (Despesa* des);
 void gravaDespesa (Despesa* des);
+void exibeProduto (Produto* pro);
+void gravaProduto (Produto* pro);
