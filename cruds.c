@@ -114,8 +114,28 @@ void atualizarReceita(void){
        }
    }
     if (achou){
-       
-    }
+     exibeReceita(rec);
+     printf("Deseja alterar a esta receita?(s/n)");
+     scanf("%c",&resp);
+      if (resp= 's')||(resp == 'S'){
+       printf("///  Digite a origem da receita:                                      ///\n");
+       scanf(" %25[^\n]", rec->origem);
+       printf("///Digite o valor da receita:                                        /// \n");
+       scanf(" %8[^\n]", rec->valor);
+       printf("/// Digite a data da receita (dd/mm/aaaa):                           /// \n");
+       scanf(" %10[^\n]", rec->data);
+       rec->status = '1';
+       fseek(fp, (-1)*sizeof(Receita), SEEK_CUR);
+       fwrite(rec, sizeof(Receita), 1, fp);
+       printf("\nReceita  atualizada!!!\n");
+      }else {
+      printf("\n Os dados não serão alterados\n");
+      }
+     else {
+    printf("Esta receita %s não foi encontrada !!\n", alterar);
+     }
+    free(rec);
+    fclose(fp);
     printf("///                                                                   ///\n");
     printf("///                                                                   ///\n");
     printf("/////////////////////////////////////////////////////////////////////////\n");
