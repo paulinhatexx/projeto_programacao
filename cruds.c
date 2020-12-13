@@ -39,7 +39,7 @@ typedef struct produto{
    char data[11];
 };
 
-   Receita* cadastrarReceita(void){
+   void cadastrarReceita(void){
     Receita* rec;
     rec = (Receita*) malloc(sizeof(Receita));
     printf("\n");
@@ -57,14 +57,31 @@ typedef struct produto{
     scanf(" %8[^\n]", rec->valor);
     printf("/// Digite a data da receita (dd/mm/aaaa):                           /// \n");
     scanf(" %10[^\n]", rec->data);
-    rec->status = 'a';
+    rec->status = '1';
     printf("///                                                                   ///\n");
     printf("///                                                                   ///\n");
-    
     printf("/////////////////////////////////////////////////////////////////////////\n");
     printf("\n");
-    return rec;
-   
+    gravaReceita(rec);
+    exibeReceita(rec);
+}
+
+void gravaReceita (Receita* rec){
+   FILE* fp;
+   fp = fopen("receita.dat" , "ab");
+   if (fp == NULL){
+      printf("Ocorreu um erro na abertura do arquivo!!");
+      exit(1);
+   }
+   fwrite(rec, sizeof(Receita), 1, fp);
+   fclose(fp);
+}
+
+void exibeReceita (Receita* rec){
+   printf("Origem da receita: %s\n" , rec->origem);
+   printf("Valor da receita: %f\n" , rec->valor);
+   printf("Data da receita: %s\n" , rec->data);
+   printf("Status: %c\n" , rec->status);
 }
 
 void atualizarReceita(void){
@@ -81,7 +98,7 @@ void excluirReceita(void){
     getchar();
 }
 
-Pagamento* cadastrarPagamento(void){
+void cadastrarPagamento(void){
     Pagamento* pag;
     pag = (Pagamento*) malloc(sizeof(Pagamento));
     printf("\n");
@@ -99,7 +116,7 @@ Pagamento* cadastrarPagamento(void){
     scanf("%8[^\n]" , pag->valor);
     printf("Digite a data de vencimento (dd/mm/aaaa): ");
     scanf("%10[^\n]", pag->data);
-    pag->status = 'a';
+    pag->status = '1';
     printf("///                                                                   ///\n");
     printf("///                                                                   ///\n");
     printf("/////////////////////////////////////////////////////////////////////////\n");
@@ -124,7 +141,7 @@ void excluirPagamento(void){
     getchar();
 }
 
-Despesa* cadastrarDespesa(void){
+void cadastrarDespesa(void){
     Despesa* des;
     des = (Despesa*) malloc(sizeof(Despesa));
     printf("\n");
@@ -142,6 +159,7 @@ Despesa* cadastrarDespesa(void){
     scanf("%8[^\n]", des->valor);
     printf("Digite a data de despesa (dd/mm/aaaa): ");
     scanf("%10[^\n]", des->data);
+    des->status = '1';
     printf("///                                                                   ///\n");
     printf("///                                                                   ///\n");
     printf("/////////////////////////////////////////////////////////////////////////\n");
