@@ -121,11 +121,27 @@ void cadastrarPagamento(void){
     printf("///                                                                   ///\n");
     printf("/////////////////////////////////////////////////////////////////////////\n");
     printf("\n");
-    return pag;
-    getchar();
-
+    gravaPagamento(pag);
+    exibePagamento(pag);
 }
 
+void gravaPagamento (Pagamento* pag){
+   FILE* fp;
+   fp = fopen("pagamento.dat" , "ab");
+   if (fp == NULL){
+      printf("Ocorreu um erro na abertura do arquivo!!");
+      exit(1);
+   }
+   fwrite(pag, sizeof(Pagamento), 1, fp);
+   fclose(fp);
+}
+
+void exibePagamento (Pagamento* pag){
+   printf("Destino do Pagamento: %s\n" , pag->destino);
+   printf("Valor do Pagamento: %f\n" , pag->valor);
+   printf("Vencimento do Pagamento: %s\n" , pag->data);
+   printf("Status: %c\n" , pag->status);
+}
 void atualizarPagamento(void){
     printf("\n///   **   Atualizar Pagamento  **///\n\n");
     printf(" Em desenvolvimento...\n\n");
