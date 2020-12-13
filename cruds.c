@@ -215,7 +215,7 @@ void excluirDespesa(void){
     getchar();
 }
 
-Produto* incluirProduto(void){
+void incluirProduto(void){
      Produto* pro;
     pro = (Produto*) malloc(sizeof(Produto));
     printf("\n");
@@ -234,15 +234,34 @@ Produto* incluirProduto(void){
     scanf("%25[^\n]", pro->valor);
     printf("Digite a data de compra (dd/mm/aaaa): ");
     scanf("%25[^\n]", pro->data);
-    dataValida(dia, mes, ano);
-    while(!dataValida(data[0], data[1], data[2])){
-    printf("\nData invalida! Digite novamente (dd/mm/aaaa): ");
-    scanf("%d/%d/%d",&data[0], &data[1], &data[2]);
-    return pro;
-    }
+    pro->status = '1';
+    printf("///                                                                   ///\n");
+    printf("///                                                                   ///\n");
+    printf("/////////////////////////////////////////////////////////////////////////\n");
+    printf("\n");
+    gravaProduto(pro);
+    exibeProduto(pro);
+ 
   
  }
 
+void gravaProduto (Produto* pro){
+   FILE* fp;
+   fp = fopen("produto.dat" , "ab");
+   if (fp == NULL){
+      printf("Ocorreu um erro na abertura do arquivo!!");
+      exit(1);
+   }
+   fwrite(pro, sizeof(Produto), 1, fp);
+   fclose(fp);
+}
+
+void exibeProduto (Produto* pro){
+   printf(" Tipo de Produto: %s\n" , pro->tipo);
+   printf("Valor do Produto: %f\n" , pro->valor);
+   printf("Data da compra : %s\n" , pro->data);
+   printf("Status: %c\n" , pro->status);
+}
 
 void alterarProduto(void){
     printf("\n///   **   Alterar Produto  **   ///\n\n");
