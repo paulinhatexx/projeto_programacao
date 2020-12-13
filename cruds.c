@@ -86,7 +86,16 @@ void exibeReceita (Receita* rec){
 
 void atualizarReceita(void){
     FILE* fp;
+    int achou;
+    char resp;
+    char alterar[26];
+    fp = fopen("receita.dat" , "r+b");
+    if (fp == NULL){
+      printf("Ocorreu um erro na abertura do arquivo!!");
+      exit(1);
+   }
     Receita* rec;
+    achou = 0;
     printf("\n");
     printf("/////////////////////////////////////////////////////////////////////////\n");
     printf("///|                                                                 |///\n");
@@ -97,8 +106,16 @@ void atualizarReceita(void){
     printf("///                                                                   ///\n");
     printf("///                                                                   ///\n");
     printf("///  Digite a receita a ser alterada:                                 ///\n");
-    scanf(" %25[
-    
+    scanf(" %25[^\n]", alterar);
+    rec = (Receita*) malloc(sizeof(Receita));
+    while((!achou)&&(fread(rec,sizeof(Receita), 1,fp))){
+       if((strcmp(rec->origrm, alterar) == 0) && (rec->status == '1')){
+         achou = 1;
+       }
+   }
+    if (achou){
+       
+    }
     printf("///                                                                   ///\n");
     printf("///                                                                   ///\n");
     printf("/////////////////////////////////////////////////////////////////////////\n");
