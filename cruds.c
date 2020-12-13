@@ -180,7 +180,25 @@ void cadastrarDespesa(void){
     printf("///                                                                   ///\n");
     printf("/////////////////////////////////////////////////////////////////////////\n");
     printf("\n");
-    return des;
+    gravaDespesa(des);
+    exibeDespesa(des);
+}
+void gravaDespesa (Despesa* des){
+   FILE* fp;
+   fp = fopen("despesa.dat" , "ab");
+   if (fp == NULL){
+      printf("Ocorreu um erro na abertura do arquivo!!");
+      exit(1);
+   }
+   fwrite(des, sizeof(Despesa), 1, fp);
+   fclose(fp);
+}
+
+void exibeDespesa (Despesa* des){
+   printf(" Tipo da despesa: %s\n" , des->tipo);
+   printf("Valor da despesa: %f\n" , des->valor);
+   printf("Data da despesa: %s\n" , des->data);
+   printf("Status: %c\n" , rec->status);
 }
 
 void atualizarDespesa(void){
