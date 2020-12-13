@@ -1,4 +1,4 @@
-Receita* cadastrarReceita(void);
-Despesa* cadastrarDespesa(void);
-Pagamento* cadastrarPagamento(void);
-Produto* incluirProduto(void);
+void cadastrarReceita(void);
+void cadastrarDespesa(void);
+void cadastrarPagamento(void);
+void incluirProduto(void);
