@@ -6,3 +6,5 @@ void exibeReceita (Receita* rec);
 void gravaReceita (Receita* rec);
 void exibePagamento(Pagamento* pag);
 void gravaPagamento(Pagamento* pag);
+void exibeDespesa (Despesa* des);
+void gravaDespesa (Despesa* des);
