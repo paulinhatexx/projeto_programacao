@@ -4,7 +4,6 @@
 #include"menus.h"
 #include"modulos.h"
 #include"validacoes.h"
-#include"leituras.h"
 
 
 
