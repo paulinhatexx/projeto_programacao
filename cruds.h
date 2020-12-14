@@ -1,7 +1,19 @@
 void cadastrarReceita(void);
+void alterarDespesa(void);
+void excluirReceita(void);
 void cadastrarDespesa(void);
+void atualizarDespesa(void);
+void excluirDespesa(void);
 void cadastrarPagamento(void);
+void atualizarPagamento(void);
+void excluirPagamento(void);
+void alterarProduto(void);
+void excluirProduto(void);
 void incluirProduto(void);
+void consultarOrcamento(void);
+void consultarDespesas(void);
+void consultarPagamentos(void);
+
 void exibeReceita (Receita* rec);
 void gravaReceita (Receita* rec);
 void exibePagamento(Pagamento* pag);
