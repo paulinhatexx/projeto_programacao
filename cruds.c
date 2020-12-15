@@ -116,7 +116,7 @@ void atualizarReceita(void){
      exibeReceita(rec);
      printf("Deseja alterar a esta receita?(s/n)");
      scanf("%c",&resp);
-      if (resp= 's')||(resp == 'S'){
+      if (resp =='s')||(resp == 'S'){
        printf("///  Digite a origem da receita:                                      ///\n");
        scanf(" %25[^\n]", rec->origem);
        printf("///Digite o valor da receita:                                        /// \n");
