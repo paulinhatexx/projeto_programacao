@@ -128,11 +128,11 @@ void atualizarReceita(void){
        fwrite(rec, sizeof(Receita), 1, fp);
        printf("\nReceita  atualizada!!!\n");
       }else {
-      printf("\n Os dados não serão alterados\n");
+       printf("\n Os dados não serão alterados\n");
       }
-     else {
-    printf("Esta receita %s não foi encontrada !!\n", alterar);
-     }
+    } else {
+     printf("Esta receita %s não foi encontrada !!\n", alterar);
+    }
     free(rec);
     fclose(fp);
     printf("///                                                                   ///\n");
