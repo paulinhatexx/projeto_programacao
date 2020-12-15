@@ -1,8 +1,6 @@
 #include <stdio.h>
 #include"menus.h"
 #include"modulos.h"
-#include"validacoes.h"
-#include"cruds.h"
 int main (void){
     
     char opcao;
