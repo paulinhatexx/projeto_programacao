@@ -4,43 +4,18 @@
 #include"menus.h"
 #include"modulos.h"
 #include"validacoes.h"
+#include"cruds.h"
 
+void cadastrarReceita(void){
 
-
-typedef struct receita Receita;
-typedef struct despesa Despesa;
-typedef struct pagamento Pagamento;
-typedef struct produto Produto;
-
-typedef struct receita{
-   char origem[26];
-   float valor[9];
-   char data[11];
-   char status;
-};
-
-typedef struct despesa{
-   char tipo[26];
-   float valor[9];
-   char data[11];
-};
-
-typedef struct pagamento{
-   char destino[31];
-   float valor[9];
-   char data[11];
-   char status;
-};
-
-typedef struct produto{
-   char tipo[26];
-   char valor[9];
-   char data[11];
-};
-
-   void cadastrarReceita(void){
     Receita* rec;
     rec = (Receita*) malloc(sizeof(Receita));
+    FILE* fp;
+    fp = fopen("receita.dat" , "ab");
+    if (fp == NULL){
+      printf("Ocorreu um erro na abertura do arquivo!!");
+      exit(1);
+    }
     printf("\n");
     printf("/////////////////////////////////////////////////////////////////////////\n");
     printf("///|                                                                 |///\n");
@@ -51,20 +26,27 @@ typedef struct produto{
     printf("///                                                                   ///\n");
     printf("///                                                                   ///\n");
     printf("///  Digite a origem da receita:                                      ///\n");
-    scanf(" %25[^\n]", rec->origem);
-    printf("///Digite o valor da receita:                                        /// \n");
-    scanf(" %8[^\n]", rec->valor);
+    scanf(" %26[^\n]", rec->origem);
+    getchar();
+    printf("///  Digite o valor da receita:                                      /// \n");
+    scanf(" %9[^\n]", rec->valor);
+    getchar();
     printf("/// Digite a data da receita (dd/mm/aaaa):                           /// \n");
-    scanf(" %10[^\n]", rec->data);
+    scanf(" %11[^\n]", rec->data);
+    getchar();
     rec->status = '1';
     printf("///                                                                   ///\n");
     printf("///                                                                   ///\n");
     printf("/////////////////////////////////////////////////////////////////////////\n");
-    printf("\n");
-    gravaReceita(rec);
-    exibeReceita(rec);
-}
+    printf("\n"); 
 
+    printf("\nTECLE ENTER PARA VOLTAR");
+    getchar();  
+    fwrite(rec, sizeof(Receita), 1, fp);
+    fclose(fp);
+    free(rec);
+}
+/*
 void gravaReceita (Receita* rec){
    FILE* fp;
    fp = fopen("receita.dat" , "ab");
@@ -75,12 +57,15 @@ void gravaReceita (Receita* rec){
    fwrite(rec, sizeof(Receita), 1, fp);
    fclose(fp);
 }
-
+*/
 void exibeReceita (Receita* rec){
+
+
    printf("Origem da receita: %s\n" , rec->origem);
-   printf("Valor da receita: %f\n" , rec->valor);
+   printf("Valor da receita: %s\n" , rec->valor);
    printf("Data da receita: %s\n" , rec->data);
-   printf("Status: %c\n" , rec->status);
+   //printf("Status: %c\n" , rec->status);
+
 }
 
 void atualizarReceita(void){
@@ -108,7 +93,7 @@ void atualizarReceita(void){
     scanf(" %25[^\n]", alterar);
     rec = (Receita*) malloc(sizeof(Receita));
     while((!achou)&&(fread(rec,sizeof(Receita), 1,fp))){
-       if((strcmp(rec->origrm, alterar) == 0) && (rec->status == '1')){
+       if((strcmp(rec->origem, alterar) == 0) && (rec->status == '1')){
          achou = 1;
        }
    }
@@ -116,7 +101,7 @@ void atualizarReceita(void){
      exibeReceita(rec);
      printf("Deseja alterar a esta receita?(s/n)");
      scanf("%c",&resp);
-      if (resp =='s')||(resp == 'S'){
+      if (resp =='s' || resp == 'S'){
        printf("///  Digite a origem da receita:                                      ///\n");
        scanf(" %25[^\n]", rec->origem);
        printf("///Digite o valor da receita:                                        /// \n");
@@ -151,6 +136,12 @@ void excluirReceita(void){
 void cadastrarPagamento(void){
     Pagamento* pag;
     pag = (Pagamento*) malloc(sizeof(Pagamento));
+   FILE* fp;
+   fp = fopen("pagamento.dat" , "ab");
+   if (fp == NULL){
+      printf("Ocorreu um erro na abertura do arquivo!!");
+      exit(1);
+   }
     printf("\n");
     printf("/////////////////////////////////////////////////////////////////////////\n");
     printf("///|                                                                 |///\n");
@@ -163,32 +154,27 @@ void cadastrarPagamento(void){
     printf("Digite o destino do Pagamento:               \n");
     scanf(" %30[^\n]", pag->destino);
     printf("Digite o valor do pagamento:                \n");
-    scanf("%8[^\n]" , pag->valor);
+    scanf(" %8[^\n]" , pag->valor);
     printf("Digite a data de vencimento (dd/mm/aaaa): ");
-    scanf("%10[^\n]", pag->data);
+    scanf(" %10[^\n]", pag->data);
+    getchar();
     pag->status = '1';
     printf("///                                                                   ///\n");
     printf("///                                                                   ///\n");
     printf("/////////////////////////////////////////////////////////////////////////\n");
     printf("\n");
-    gravaPagamento(pag);
-    exibePagamento(pag);
-}
 
-void gravaPagamento (Pagamento* pag){
-   FILE* fp;
-   fp = fopen("pagamento.dat" , "ab");
-   if (fp == NULL){
-      printf("Ocorreu um erro na abertura do arquivo!!");
-      exit(1);
-   }
-   fwrite(pag, sizeof(Pagamento), 1, fp);
-   fclose(fp);
+    printf("\nTECLE ENTER PARA VOLTAR");
+    getchar(); 
+    fwrite(pag, sizeof(Pagamento), 1, fp);
+    fclose(fp);
+    free(pag);
+    exibePagamento(pag);
 }
 
 void exibePagamento (Pagamento* pag){
    printf("Destino do Pagamento: %s\n" , pag->destino);
-   printf("Valor do Pagamento: %f\n" , pag->valor);
+   printf("Valor do Pagamento: %s\n" , pag->valor);
    printf("Vencimento do Pagamento: %s\n" , pag->data);
    printf("Status: %c\n" , pag->status);
 }
@@ -220,17 +206,23 @@ void cadastrarDespesa(void){
     printf("///                                                                   ///\n");
     printf("///                                                                   ///\n");
     printf("Digite o tipo de Despesa :               \n");
-    scanf("%25[^\n]", des->tipo );
+    scanf(" %25[^\n]", des->tipo );
+    getchar();
     printf("Digite o valor da despesa :                \n");
-    scanf("%8[^\n]", des->valor);
+    scanf(" %8[^\n]", des->valor);
+    getchar();
     printf("Digite a data de despesa (dd/mm/aaaa): ");
-    scanf("%10[^\n]", des->data);
+    scanf(" %10[^\n]", des->data);
+    getchar();
     des->status = '1';
     printf("///                                                                   ///\n");
     printf("///                                                                   ///\n");
     printf("/////////////////////////////////////////////////////////////////////////\n");
     printf("\n");
+    printf("\nTECLE ENTER PARA VOLTAR");
+    getchar();
     gravaDespesa(des);
+    free(des);
     exibeDespesa(des);
 }
 void gravaDespesa (Despesa* des){
@@ -246,9 +238,9 @@ void gravaDespesa (Despesa* des){
 
 void exibeDespesa (Despesa* des){
    printf(" Tipo da despesa: %s\n" , des->tipo);
-   printf("Valor da despesa: %f\n" , des->valor);
+   printf("Valor da despesa: %s\n" , des->valor);
    printf("Data da despesa: %s\n" , des->data);
-   printf("Status: %c\n" , rec->status);
+   printf("Status: %c\n" , des->status);
 }
 
 void atualizarDespesa(void){
@@ -279,17 +271,23 @@ void incluirProduto(void){
     printf("///                                                                   ///\n");
     printf("\n///   **   Incluir Produto  **   ///\n\n");
     printf("Digite o tipo de Produto :               \n");
-    scanf("%25[^\n]", pro->tipo  );
+    scanf(" %25[^\n]", pro->tipo  );
+    getchar();
     printf("Digite o valor do produto :              \n");
-    scanf("%25[^\n]", pro->valor);
+    scanf(" %25[^\n]", pro->valor);
+    getchar();
     printf("Digite a data de compra (dd/mm/aaaa): ");
-    scanf("%25[^\n]", pro->data);
+    scanf(" %25[^\n]", pro->data);
+    getchar();
     pro->status = '1';
     printf("///                                                                   ///\n");
     printf("///                                                                   ///\n");
     printf("/////////////////////////////////////////////////////////////////////////\n");
     printf("\n");
+    printf("\nTECLE ENTER PARA VOLTAR");
+    getchar();
     gravaProduto(pro);
+    free(pro);
     exibeProduto(pro);
  
   
@@ -308,7 +306,7 @@ void gravaProduto (Produto* pro){
 
 void exibeProduto (Produto* pro){
    printf(" Tipo de Produto: %s\n" , pro->tipo);
-   printf("Valor do Produto: %f\n" , pro->valor);
+   printf("Valor do Produto: %s\n" , pro->valor);
    printf("Data da compra : %s\n" , pro->data);
    printf("Status: %c\n" , pro->status);
 }
