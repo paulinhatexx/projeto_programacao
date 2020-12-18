@@ -1,9 +1,10 @@
 #include<stdio.h>
 #include"menus.h"
 #include"cruds.h"
-
+#include<stdlib.h>
 
 void moduloReceitas(void){
+    system("clear||cls");
     char opcao;
     do{
         opcao= menuReceita();
@@ -21,6 +22,7 @@ void moduloReceitas(void){
 }
 
 void moduloPagamentos(void){
+    system("clear||cls");
     char opcao;
     do{
         opcao= menuPagamentos();
@@ -39,6 +41,7 @@ void moduloPagamentos(void){
 
 
 void moduloDespesas(void){
+    system("clear||cls");
     char opcao;
     do{
         opcao= menuDespesa();
@@ -56,6 +59,7 @@ void moduloDespesas(void){
 }
 
 void moduloProduto(void){
+    system("clear||cls");
     char opcao;
     do{
         opcao= menuProduto();
@@ -72,6 +76,7 @@ void moduloProduto(void){
 }
 
 void moduloConsultas(void){
+    system("clear||cls");
     char opcao;
     do{
         opcao= menuConsulta();
