@@ -177,8 +177,8 @@ void excluirReceita(void){
     free(rec);
     fclose(fp);
 }
-    getchar();
-}
+
+
 
 void cadastrarPagamento(void){
     Pagamento* pag;
@@ -256,7 +256,7 @@ void atualizarPagamento(void){
        }
    }
     if (achou){
-     exibePagamento(rec);
+     exibePagamento(pag);
      printf("Deseja alterar  este  pagamento?(s/n)");
      scanf("%c",&resp);
       if (resp =='s' || resp == 'S'){
@@ -268,7 +268,7 @@ void atualizarPagamento(void){
        scanf(" %10[^\n]", pag->data);
        pag->status = '1';
        fseek(fp, (-1)*sizeof(Pagamento), SEEK_CUR);
-       fwrite(rec, sizeof(Pagamento), 1, fp);
+       fwrite(pag, sizeof(Pagamento), 1, fp);
        printf("\nPagamento  atualizado!!!\n");
       }else {
        printf("\n Os dados não serão alterados\n");
@@ -309,7 +309,7 @@ void excluirPagamento(void){
     printf("///                                                                   ///\n");
     printf("///  Digite o pagamento a ser excluido:                               ///\n");
     scanf(" %14[^\n]",alterar);
-    pag = (Pagamento*) malloc(sizeof(pagamento));
+    pag = (Pagamento*) malloc(sizeof(Pagamento));
     achou = 0;
     while((!achou)&&(fread(pag,sizeof(Pagamento), 1,fp))){
        if((strcmp(pag->destino, alterar) == 0) && (pag->status == '1')){
@@ -336,12 +336,8 @@ void excluirPagamento(void){
     free(pag);
     fclose(fp);
 }
-    getchar();
-}
 
-    printf("Tecle ENTER pra continuar..");
-    getchar();
-}
+
 
 void cadastrarDespesa(void){
     Despesa* des;
@@ -423,9 +419,9 @@ void excluirDespesa(void){
     printf("///                                                                   ///\n");
     printf("///  Digite a despesa a ser excluida:                                 ///\n");
     scanf(" %14[^\n]",alterar);
-    rec = (Despesa*) malloc(sizeof(Despesa));
+    des = (Despesa*) malloc(sizeof(Despesa));
     achou = 0;
-    while((!achou)&&(fread(rec,sizeof(Despesa), 1,fp))){
+    while((!achou)&&(fread(des,sizeof(Despesa), 1,fp))){
        if((strcmp(des->tipo, alterar) == 0) && (des->status == '1')){
          achou = 1;
        }
@@ -439,7 +435,7 @@ void excluirDespesa(void){
         if (resp == 's' || resp == 'S') {
             des->status = '0';
             fseek(fp, (-1)*sizeof(Despesa), SEEK_CUR);
-            fwrite(rec, sizeof(Despesa), 1, fp);
+            fwrite(des, sizeof(Despesa), 1, fp);
             printf("\nDespesa excluída com sucesso!!!\n");
         } else {
             printf("\n Os dados não foram alterados\n");
@@ -450,9 +446,7 @@ void excluirDespesa(void){
     free(des);
     fclose(fp);
 }
-    printf("Tecle ENTER pra continuar..");
-    getchar();
-}
+   
 
 void incluirProduto(void){
     Produto* pro;
@@ -565,10 +559,7 @@ void excluirProduto(void){
     free(pro);
     fclose(fp);
 }
-    printf("Tecle ENTER pra continuar..");
-    getchar();
-
-}
+  
 
 void consultarOrcamento(void){
     printf("\n///   **  Consultar Orçamento **  ///\n\n");

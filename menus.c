@@ -1,6 +1,7 @@
 #include<stdio.h>
 #include"cruds.h"
 void sobre(void){
+   system("clear||cls");
     printf("\n");
     printf("/////////////////////////////////////////////////////////////////////////\n");
     printf("///                                                                   ///\n");
@@ -34,6 +35,7 @@ void sobre(void){
 }
 
 char telaPrincipal(void) {
+    system("clear||cls");
     char op;
     printf("\n");
     printf("/////////////////////////////////////////////////////////////////////////\n");
@@ -61,6 +63,7 @@ char telaPrincipal(void) {
 }
 
 char menuReceita(void) {
+    system("clear||cls");
     char op;
     
     printf("\n");
@@ -86,6 +89,7 @@ char menuReceita(void) {
 }
 
 char menuPagamentos(void) {
+    system("clear||cls");
     char op;
     printf("\n");
     printf("/////////////////////////////////////////////////////////////////////////\n");
@@ -111,6 +115,7 @@ char menuPagamentos(void) {
 }
 
 char menuDespesa(void) {
+    system("clear||cls");
     char op;
     printf("\n");
     printf("/////////////////////////////////////////////////////////////////////////\n");
@@ -135,6 +140,7 @@ char menuDespesa(void) {
 }
 
 char menuProduto(void) {
+    system("clear||cls");
     char op;
     printf("\n");
     printf("/////////////////////////////////////////////////////////////////////////\n");
@@ -159,6 +165,7 @@ char menuProduto(void) {
 }
 
 char menuConsulta(void) {
+    system("clear||cls");
     char op;
     printf("\n");
     printf("/////////////////////////////////////////////////////////////////////////\n");
