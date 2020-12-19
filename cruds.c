@@ -304,7 +304,7 @@ void excluirPagamento(void){
     printf("///|                    *** SIG-Finance ***                          |///\n");
     printf("///|                                                                 |///\n");
     printf("///|_________________________________________________________________|///\n");
-    printf("///                    **   Excluir  Pagamento **                     ///\n");
+    printf("///                    **   Excluir Pagamento **                     ///\n");
     printf("///                                                                   ///\n");
     printf("///                                                                   ///\n");
     printf("///  Digite o pagamento a ser excluido:                               ///\n");
@@ -390,10 +390,62 @@ void exibeDespesa (Despesa* des){
 }
 
 void atualizarDespesa(void){
-    printf("\n///   **   Atualizar Despesa  **   ///\n\n");
-    printf(" Em desenvolvimento...\n\n");
-    printf("Tecle ENTER pra continuar..");
+    FILE* fp;
+    int achou;
+    char resp;
+    char alterar[26];
+    fp = fopen("despesa.dat" , "r+b");
+    if (fp == NULL){
+      printf("Ocorreu um erro na abertura do arquivo!!");
+      exit(1);
+   }
+    Despesa* des;
+    achou = 0;
+    printf("\n");
+    printf("/////////////////////////////////////////////////////////////////////////\n");
+    printf("///|                                                                 |///\n");
+    printf("///|                    *** SIG-Finance ***                          |///\n");
+    printf("///|                                                                 |///\n");
+    printf("///|_________________________________________________________________|///\n");
+    printf("///                    **   Atualizar Despesa **                      ///\n");
+    printf("///                                                                   ///\n");
+    printf("///                                                                   ///\n");
+    printf("///  Digite a despesa a ser alterada:                                 ///\n");
+    scanf(" %25[^\n]", alterar);
     getchar();
+    des = (Despesa*) malloc(sizeof(Despesa));
+    while((!achou)&&(fread(des,sizeof(Despesa), 1,fp))){
+       if((strcmp(des->tipo, alterar) == 0) && (des->status == '1')){
+         achou = 1;
+       }
+   }
+    if (achou){
+        exibeDespesa(des);
+        printf("Deseja alterar esta despesa?(s/n)");
+        scanf("%c",&resp);
+        if (resp =='s' || resp == 'S'){
+        printf("///  Digite o tipo de despesa:                                      ///\n");
+        scanf(" %25[^\n]", des->tipo);
+        printf("///Digite o valor da despesa:                                       /// \n");
+        scanf(" %8[^\n]", des->valor);
+        printf("/// Digite a data da despesa (dd/mm/aaaa):                           /// \n");
+        scanf(" %10[^\n]", des->data);
+        rec->status = '1';
+        fseek(fp, (-1)*sizeof(Despesa), SEEK_CUR);
+        fwrite(des, sizeof(Despesa), 1, fp);
+        printf("\nDespesa  atualizada!!!\n");
+        }else {
+            printf("\n Os dados não serão alterados\n");
+       }
+       } else {
+        printf("Esta despesa %s não foi encontrada !!\n", alterar);
+    }
+        free(des);
+        fclose(fp);
+        printf("///                                                                   ///\n");
+        printf("///                                                                   ///\n");
+        printf("/////////////////////////////////////////////////////////////////////////\n");
+        printf("\n");
 }
 
 void excluirDespesa(void){
@@ -503,10 +555,62 @@ void exibeProduto (Produto* pro){
 }
 
 void alterarProduto(void){
-    printf("\n///   **   Alterar Produto  **   ///\n\n");
-    printf(" Em desenvolvimento...\n\n");
-    printf("Tecle ENTER pra continuar..");
+    FILE* fp;
+    int achou;
+    char resp;
+    char alterar[26];
+    fp = fopen("produto.dat" , "r+b");
+    if (fp == NULL){
+      printf("Ocorreu um erro na abertura do arquivo!!");
+      exit(1);
+   }
+    Produto* pro;
+    achou = 0;
+    printf("\n");
+    printf("/////////////////////////////////////////////////////////////////////////\n");
+    printf("///|                                                                 |///\n");
+    printf("///|                    *** SIG-Finance ***                          |///\n");
+    printf("///|                                                                 |///\n");
+    printf("///|_________________________________________________________________|///\n");
+    printf("///                    **   Alterar Produto **                        ///\n");
+    printf("///                                                                   ///\n");
+    printf("///                                                                   ///\n");
+    printf("///  Digite o produto a ser alterado:                                 ///\n");
+    scanf(" %25[^\n]", alterar);
     getchar();
+    pro = (Produto*) malloc(sizeof(Produto));
+    while((!achou)&&(fread(pro,sizeof(Produto), 1,fp))){
+       if((strcmp(pro->tipo, alterar) == 0) && (pro->status == '1')){
+         achou = 1;
+       }
+   }
+    if (achou){
+        exibeProduto(pro);
+        printf("Deseja alterar este produto?(s/n)");
+        scanf("%c",&resp);
+        if (resp =='s' || resp == 'S'){
+        printf("///  Digite o tipo de produto:                                      ///\n");
+        scanf(" %25[^\n]", pro->tipo);
+        printf("///Digite o valor do produto:                                       /// \n");
+        scanf(" %8[^\n]", pro->valor);
+        printf("/// Digite a data de compra (dd/mm/aaaa):                           /// \n");
+        scanf(" %10[^\n]", pro->data);
+        rec->status = '1';
+        fseek(fp, (-1)*sizeof(Produto), SEEK_CUR);
+        fwrite(pro, sizeof(Produto), 1, fp);
+        printf("\nProduto  atualizado!!!\n");
+        }else {
+            printf("\n Os dados não serão alterados\n");
+       }
+       } else {
+        printf("Este produto %s não foi encontrado !!\n", alterar);
+    }
+        free(pro);
+        fclose(fp);
+        printf("///                                                                   ///\n");
+        printf("///                                                                   ///\n");
+        printf("/////////////////////////////////////////////////////////////////////////\n");
+        printf("\n");
 }
 
 void excluirProduto(void){
