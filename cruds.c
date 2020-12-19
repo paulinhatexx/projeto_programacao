@@ -430,7 +430,7 @@ void atualizarDespesa(void){
         scanf(" %8[^\n]", des->valor);
         printf("/// Digite a data da despesa (dd/mm/aaaa):                           /// \n");
         scanf(" %10[^\n]", des->data);
-        rec->status = '1';
+        des->status = '1';
         fseek(fp, (-1)*sizeof(Despesa), SEEK_CUR);
         fwrite(des, sizeof(Despesa), 1, fp);
         printf("\nDespesa  atualizada!!!\n");
@@ -595,7 +595,7 @@ void alterarProduto(void){
         scanf(" %8[^\n]", pro->valor);
         printf("/// Digite a data de compra (dd/mm/aaaa):                           /// \n");
         scanf(" %10[^\n]", pro->data);
-        rec->status = '1';
+        pro->status = '1';
         fseek(fp, (-1)*sizeof(Produto), SEEK_CUR);
         fwrite(pro, sizeof(Produto), 1, fp);
         printf("\nProduto  atualizado!!!\n");
