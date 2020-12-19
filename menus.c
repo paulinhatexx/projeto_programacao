@@ -1,5 +1,7 @@
 #include<stdio.h>
 #include"cruds.h"
+#include<stdlib.h>
+
 void sobre(void){
    system("clear||cls");
     printf("\n");
