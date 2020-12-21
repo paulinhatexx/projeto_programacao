@@ -246,7 +246,7 @@ void atualizarPagamento(void){
     printf("///                    **   Atualizar  Pagamento **                   ///\n");
     printf("///                                                                   ///\n");
     printf("///                                                                   ///\n");
-    printf("///  Digite o pagamento a ser alterada:                               ///\n");
+    printf("///  Digite o pagamento a ser alterado:                               ///\n");
     scanf(" %25[^\n]", alterar);
     getchar();
     pag = (Pagamento*) malloc(sizeof(Pagamento));
@@ -256,26 +256,27 @@ void atualizarPagamento(void){
        }
    }
     if (achou){
-     exibePagamento(pag);
-     printf("Deseja alterar  este  pagamento?(s/n)");
-     scanf("%c",&resp);
-      if (resp =='s' || resp == 'S'){
-       printf("///  Digite o destino do pagamento:                                  ///\n");
-       scanf(" %25[^\n]", pag->destino);
-       printf("///Digite o valor do pagamento:                                      /// \n");
-       scanf(" %8[^\n]", pag->valor);
-       printf("/// Digite a data de vencimento (dd/mm/aaaa):                        /// \n");
-       scanf(" %10[^\n]", pag->data);
-       pag->status = '1';
-       fseek(fp, (-1)*sizeof(Pagamento), SEEK_CUR);
-       fwrite(pag, sizeof(Pagamento), 1, fp);
-       printf("\nPagamento  atualizado!!!\n");
-      }else {
-       printf("\n Os dados não serão alterados\n");
-      }
+        exibePagamento(pag);
+        printf("Deseja alterar  este  pagamento?(s/n)");
+        scanf("%c",&resp);
+        if (resp =='s' || resp == 'S'){
+        printf("///  Digite o destino do pagamento:                                  ///\n");
+        scanf(" %25[^\n]", pag->destino);
+        printf("///Digite o valor do pagamento:                                      /// \n");
+        scanf(" %8[^\n]", pag->valor);
+        printf("/// Digite a data de vencimento (dd/mm/aaaa):                        /// \n");
+        scanf(" %10[^\n]", pag->data);
+        pag->status = '1';
+        fseek(fp, (-1)*sizeof(Pagamento), SEEK_CUR);
+        fwrite(pag, sizeof(Pagamento), 1, fp);
+        printf("\nPagamento  atualizado!!!\n");
+    
     } else {
+        printf("\n Os dados não serão alterados\n");
+      }
+} else {
      printf("Este pagamento %s não foi encontrado !!\n", alterar);
-    }
+        }
     free(pag);
     fclose(fp);
     printf("///                                                                   ///\n");
@@ -329,12 +330,18 @@ void excluirPagamento(void){
             printf("\nPagamento excluído com sucesso!!!\n");
         } else {
             printf("\n Os dados não foram alterados\n");
-        }
-     } else {
+            }
+        } else{
          printf("Este pagamento%s não foi encontrado..\n", alterar);
-    }
-    free(pag);
-    fclose(fp);
+    }      
+        free(pag);
+        fclose(fp);
+        printf("///                                                                   ///\n");
+        printf("///                                                                   ///\n");
+        printf("/////////////////////////////////////////////////////////////////////////\n");
+        printf("\n");
+        printf("Tecle ENTER pra continuar..");
+        getchar();
 }
 
 
@@ -342,6 +349,12 @@ void excluirPagamento(void){
 void cadastrarDespesa(void){
     Despesa* des;
     des = (Despesa*) malloc(sizeof(Despesa));
+    FILE* fp;
+    fp = fopen("despesa.dat" , "ab");
+    if (fp == NULL){
+      printf("Ocorreu um erro na abertura do arquivo!!");
+      exit(1);
+    }
     printf("\n");
     printf("/////////////////////////////////////////////////////////////////////////\n");
     printf("///|                                                                 |///\n");
@@ -361,17 +374,19 @@ void cadastrarDespesa(void){
     scanf(" %10[^\n]", des->data);
     getchar();
     des->status = '1';
+    fseek(fp, (-1)*sizeof(Despesa), SEEK_CUR);
+    fwrite(des, sizeof(Despesa), 1, fp);
+    printf("\nDespesa cadastrada!!\n");
+    printf("\nTecle enter para voltar...");
     printf("///                                                                   ///\n");
     printf("///                                                                   ///\n");
     printf("/////////////////////////////////////////////////////////////////////////\n");
     printf("\n");
-    printf("\nTECLE ENTER PARA VOLTAR");
-    getchar();
-    gravaDespesa(des);
     free(des);
-    exibeDespesa(des);
+    fclose(fp);
+    getchar();
 }
-void gravaDespesa (Despesa* des){
+/*void gravaDespesa (Despesa* des){
    FILE* fp;
    fp = fopen("despesa.dat" , "ab");
    if (fp == NULL){
@@ -380,13 +395,14 @@ void gravaDespesa (Despesa* des){
    }
    fwrite(des, sizeof(Despesa), 1, fp);
    fclose(fp);
-}
+   getchar();
+}*/
 
 void exibeDespesa (Despesa* des){
    printf(" Tipo da despesa: %s\n" , des->tipo);
    printf("Valor da despesa: %s\n" , des->valor);
    printf("Data da despesa: %s\n" , des->data);
-   printf("Status: %c\n" , des->status);
+
 }
 
 void atualizarDespesa(void){
@@ -439,9 +455,11 @@ void atualizarDespesa(void){
        }
        } else {
         printf("Esta despesa %s não foi encontrada !!\n", alterar);
+        printf("Tecle enter para voltar...");
     }
         free(des);
         fclose(fp);
+        getchar();
         printf("///                                                                   ///\n");
         printf("///                                                                   ///\n");
         printf("/////////////////////////////////////////////////////////////////////////\n");
@@ -503,6 +521,12 @@ void excluirDespesa(void){
 void incluirProduto(void){
     Produto* pro;
     pro = (Produto*) malloc(sizeof(Produto));
+    FILE* fp;
+    fp = fopen("produto.dat" , "ab");
+    if (fp == NULL){
+      printf("Ocorreu um erro na abertura do arquivo!!");
+      exit(1);
+    }
     printf("\n");
     printf("/////////////////////////////////////////////////////////////////////////\n");
     printf("///|                                                                 |///\n");
@@ -523,20 +547,21 @@ void incluirProduto(void){
     scanf(" %25[^\n]", pro->data);
     getchar();
     pro->status = '1';
+    fseek(fp, (-1)*sizeof(Produto), SEEK_CUR);
+    fwrite(pro, sizeof(Produto), 1, fp);
     printf("///                                                                   ///\n");
     printf("///                                                                   ///\n");
     printf("/////////////////////////////////////////////////////////////////////////\n");
     printf("\n");
     printf("\nTECLE ENTER PARA VOLTAR");
     getchar();
-    gravaProduto(pro);
     free(pro);
-    exibeProduto(pro);
+    fclose(fp);
  
   
  }
 
-void gravaProduto (Produto* pro){
+/*void gravaProduto (Produto* pro){
    FILE* fp;
    fp = fopen("produto.dat" , "ab");
    if (fp == NULL){
@@ -545,7 +570,7 @@ void gravaProduto (Produto* pro){
    }
    fwrite(pro, sizeof(Produto), 1, fp);
    fclose(fp);
-}
+}*/
 
 void exibeProduto (Produto* pro){
    printf(" Tipo de Produto: %s\n" , pro->tipo);
